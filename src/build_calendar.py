@@ -9,7 +9,7 @@ DATA = ROOT / "data/sources.json"
 OUT = ROOT / "public/vvk-radar.ics"
 UA = "VVK-Radar/7.0"
 UCL_DRAW_DATE = datetime(2026, 8, 27)
-# Test run: keep UCL drops suppressed until the draw and only publish verified VVK events.
+# Never invent Champions League VVK dates before the draw.
 MONTHS = {
     "januar":1,"jan":1,"februar":2,"feb":2,"märz":3,"maerz":3,"mär":3,"mar":3,
     "april":4,"apr":4,"mai":5,"may":5,"juni":6,"jun":6,"juli":7,"jul":7,
@@ -81,11 +81,13 @@ def make_event(club,kind,url,dt,source_title=None):
 
 
 def detect_calovo_vvk(club,url,html):
+    """Calovo VVK feeds are already dedicated sale calendars.
+    Do not require the words 'Vorverkauf' in every event title: Köln, for example,
+    names events after the match while the calendar itself defines them as VVK.
+    """
     text=clean(html); events=[]
     for m in CALOVO_EVENT_RE.finditer(text):
         title=m.group(6).strip()
-        if not VVK_KEYWORD.search(title):
-            continue
         month=MONTHS.get(m.group(2).lower())
         if not month: continue
         try:
