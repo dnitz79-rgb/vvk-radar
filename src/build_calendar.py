@@ -9,6 +9,7 @@ DATA = ROOT / "data/sources.json"
 OUT = ROOT / "public/vvk-radar.ics"
 UA = "VVK-Radar/7.0"
 UCL_DRAW_DATE = datetime(2026, 8, 27)
+# Test run: keep UCL drops suppressed until the draw and only publish verified VVK events.
 MONTHS = {
     "januar":1,"jan":1,"februar":2,"feb":2,"märz":3,"maerz":3,"mär":3,"mar":3,
     "april":4,"apr":4,"mai":5,"may":5,"juni":6,"jun":6,"juli":7,"jul":7,
@@ -82,7 +83,6 @@ def make_event(club,kind,url,dt,source_title=None):
 def detect_calovo_vvk(club,url,html):
     text=clean(html); events=[]
     for m in CALOVO_EVENT_RE.finditer(text):
-        # CALOVO_EVENT_RE has six capture groups: day, month, year, hour, minute, title.
         title=m.group(6).strip()
         if not VVK_KEYWORD.search(title):
             continue
@@ -142,8 +142,6 @@ def detect(club,kind,url,html):
     if kind in ("bvb_calovo_vvk","calovo_vvk"):
         return detect_calovo_vvk(club,url,html)
     if kind == "ucl_vvk":
-        # Before the league-phase draw there are no opponent-specific UCL VVK dates.
-        # Never turn generic match dates or ticket-status ranges into fake drops.
         if datetime.now() < UCL_DRAW_DATE:
             return []
         structured=detect_vvk_from_tables(club,url,html,require_ucl=True)
