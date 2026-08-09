@@ -82,7 +82,8 @@ def make_event(club,kind,url,dt,source_title=None):
 def detect_calovo_vvk(club,url,html):
     text=clean(html); events=[]
     for m in CALOVO_EVENT_RE.finditer(text):
-        title=m.group(7).strip()
+        # CALOVO_EVENT_RE has six capture groups: day, month, year, hour, minute, title.
+        title=m.group(6).strip()
         if not VVK_KEYWORD.search(title):
             continue
         month=MONTHS.get(m.group(2).lower())
