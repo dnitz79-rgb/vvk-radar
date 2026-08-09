@@ -7,7 +7,12 @@ from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data/sources.json"
 OUT = ROOT / "public/vvk-radar.ics"
-UA = "VVK-Radar/4.1"
+UA = "VVK-Radar/5.0"
+
+MONTHS = {
+    "januar": 1, "februar": 2, "märz": 3, "april": 4, "mai": 5, "juni": 6,
+    "juli": 7, "august": 8, "september": 9, "oktober": 10, "november": 11, "dezember": 12
+}
 
 
 def fetch(url):
@@ -55,35 +60,49 @@ class TableParser(HTMLParser):
 
 DATE_RE = re.compile(r"(?<!\d)(\d{1,2})[./-](\d{1,2})(?:[./-](\d{2,4}))?(?!\d)")
 TIME_RE = re.compile(r"(?<!\d)(\d{1,2}):(\d{2})\s*(?:Uhr)?|(?<!\d)(\d{1,2})\s*Uhr")
+CALOVO_EVENT_RE = re.compile(
+    r"Beginn des Termins\s+(\d{1,2})\s+"
+    r"(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+"
+    r"(20\d{2})\s+(?:[A-Za-zÄÖÜäöü]+\.?\s*)?"
+    r"(\d{1,2}):(\d{2})\s+(.+?)(?=\s+(?:Beschreibung einblenden|Veranstaltungsort:|Details ansehen|Beginn des Termins|Termine aus vergangenen Jahren|Weitere Kalender))",
+    re.IGNORECASE
+)
 
 
-def parse_date_time(text, default_year=None, default_hour=10):
-    out = []
-    for m in DATE_RE.finditer(text):
-        day, month = int(m.group(1)), int(m.group(2))
-        raw_year = m.group(3)
-        year = int(raw_year) if raw_year else (default_year or datetime.now().year)
-        if year < 100:
-            year += 2000
-        tm = TIME_RE.search(text[m.end():m.end() + 40])
-        if tm:
-            hour = int(tm.group(1) or tm.group(3))
-            minute = int(tm.group(2) or 0)
-        else:
-            hour, minute = default_hour, 0
-        try:
-            out.append(datetime(year, month, day, hour, minute))
-        except ValueError:
-            pass
-    return out
-
-
-def make_event(club, kind, url, dt):
-    title = f"🔥 {club} | VVK" if club == "FC Bayern" else f"{club} | VVK"
+def make_event(club, kind, url, dt, source_title=None):
     if kind.startswith("second_market"):
         title = f"🔥🔥 {club} | ZWEITMARKT"
-    uid = hashlib.sha1(f"{club}|{kind}|{dt.isoformat()}|{url}".encode()).hexdigest() + "@vvk-radar"
+    elif club == "FC Bayern":
+        title = f"🔥 {club} | VVK"
+    else:
+        title = f"{club} | VVK"
+    uid = hashlib.sha1(f"{club}|{kind}|{dt.isoformat()}|{url}|{source_title or ''}".encode()).hexdigest() + "@vvk-radar"
     return uid, title, dt, url, kind
+
+
+def detect_bvb_calovo(url, html):
+    """Read the official BVB member VVK calendar published through Calovo.
+
+    Calovo identifies the calendar as an official BVB calendar feed and its
+    event start ('Beginn des Termins') is the actual VVK timestamp. We use
+    that timestamp, not the match date contained in the description. This is
+    the primary BVB source because it is purpose-built for VVK dates.
+    """
+    text = clean(html)
+    events = []
+    for m in CALOVO_EVENT_RE.finditer(text):
+        title = m.group(5).strip()
+        if not re.search(r"(?i)vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|freier vorverkauf", title):
+            continue
+        month = MONTHS[m.group(2).lower()]
+        try:
+            dt = datetime(int(m.group(3)), month, int(m.group(1)), int(m.group(4)), int(m.group(5)))
+        except ValueError:
+            continue
+        if dt < datetime.now() - timedelta(days=1):
+            continue
+        events.append(make_event("BVB", "vvk", url, dt, title))
+    return list({(e[0], e[2]): e for e in events}.values())
 
 
 def detect_vvk_from_tables(club, url, html):
@@ -97,15 +116,23 @@ def detect_vvk_from_tables(club, url, html):
     for row in parser.rows:
         sale_cells = [c for c in row if re.search(r"(?i)vvk|vorverkauf|verkaufsstart", c)]
         for cell in sale_cells:
-            for dt in parse_date_time(cell, default_year=now.year):
+            for m in DATE_RE.finditer(cell):
+                day, month = int(m.group(1)), int(m.group(2))
+                year = int(m.group(3)) if m.group(3) else now.year
+                tm = TIME_RE.search(cell[m.end():m.end() + 40])
+                hour = int(tm.group(1) or tm.group(3)) if tm else 10
+                minute = int(tm.group(2) or 0) if tm else 0
+                try:
+                    dt = datetime(year, month, day, hour, minute)
+                except ValueError:
+                    continue
                 if dt >= now - timedelta(days=1):
                     events.append(make_event(club, "vvk", url, dt))
     return list({(e[0], e[2]): e for e in events}.values())
 
 
 def detect_vvk_fallback(club, url, html):
-    """Conservative fallback only. Weekend dates are rejected because free text
-    pages commonly contain match dates next to ticket terminology."""
+    """Conservative fallback. Never turn ordinary weekend match dates into VVK."""
     text = clean(html)
     keyword = re.compile(r"(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitglieder|freier vorverkauf|ticketverkauf)")
     if not keyword.search(text):
@@ -115,36 +142,34 @@ def detect_vvk_fallback(club, url, html):
         window = text[max(0, m.start()-180):min(len(text), m.end()+260)]
         if not keyword.search(window):
             continue
-        dt = parse_date_time(m.group(0), default_year=datetime.now().year)
-        if not dt:
+        day, month = int(m.group(1)), int(m.group(2))
+        year = int(m.group(3)) if m.group(3) else datetime.now().year
+        tm = TIME_RE.search(window)
+        hour = int(tm.group(1) or tm.group(3)) if tm else 10
+        minute = int(tm.group(2) or 0) if tm else 0
+        try:
+            dt = datetime(year, month, day, hour, minute)
+        except ValueError:
             continue
-        value = dt[0]
-        if value < datetime.now() - timedelta(days=1):
+        if dt < datetime.now() - timedelta(days=1) or dt.weekday() >= 5:
             continue
-        if value.weekday() >= 5:
-            continue
-        events.append(make_event(club, "vvk", url, value))
+        events.append(make_event(club, "vvk", url, dt))
     return list({(e[0], e[2]): e for e in events}.values())
 
 
 def detect_second_market(club, kind, url, html):
-    text = clean(html)
-    keyword = re.compile(r"(?i)(zweitmarkt|ticket exchange|ticketbörse|resale)")
-    if not keyword.search(text):
-        return []
-    # Do not manufacture dates from ordinary match listings. This source type
-    # is intentionally handled conservatively until an explicit sale timestamp
-    # is published by the club.
+    # Do not manufacture dates from ordinary match listings.
     return []
 
 
 def detect(club, kind, url, html):
+    if kind == "bvb_calovo_vvk":
+        return detect_bvb_calovo(url, html)
     if kind == "vvk":
         structured = detect_vvk_from_tables(club, url, html)
         return structured if structured else detect_vvk_fallback(club, url, html)
     if kind.startswith("second_market"):
         return detect_second_market(club, kind, url, html)
-    # fixtures and other informational sources must never create VVK events.
     return []
 
 
@@ -174,7 +199,7 @@ def main():
         except Exception as exc:
             print("source failed", s["club"], exc)
     unique = {e[0]: e for e in events if e[2] >= datetime.now()}
-    lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VVK Radar V4.1//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:⚽ VVK Radar","X-WR-TIMEZONE:Europe/Berlin"]
+    lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VVK Radar V5//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:⚽ VVK Radar","X-WR-TIMEZONE:Europe/Berlin"]
     for e in sorted(unique.values(), key=lambda x: x[2]):
         lines += event_lines(*e)
     lines.append("END:VCALENDAR")
