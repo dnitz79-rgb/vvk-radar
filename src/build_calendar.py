@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data/sources.json"
 OUT = ROOT / "public/vvk-radar.ics"
-UA = "VVK-Radar/5.0"
+UA = "VVK-Radar/5.1"
 
 MONTHS = {
     "januar": 1, "februar": 2, "märz": 3, "april": 4, "mai": 5, "juni": 6,
@@ -81,12 +81,8 @@ def make_event(club, kind, url, dt, source_title=None):
 
 
 def detect_bvb_calovo(url, html):
-    """Read the official BVB member VVK calendar published through Calovo.
-
-    Calovo identifies the calendar as an official BVB calendar feed and its
-    event start ('Beginn des Termins') is the actual VVK timestamp. We use
-    that timestamp, not the match date contained in the description. This is
-    the primary BVB source because it is purpose-built for VVK dates.
+    """Primary BVB source: official BVB member VVK calendar on Calovo.
+    The 'Beginn des Termins' timestamp is the actual VVK start, not the match date.
     """
     text = clean(html)
     events = []
@@ -120,21 +116,27 @@ def detect_vvk_from_tables(club, url, html):
                 day, month = int(m.group(1)), int(m.group(2))
                 year = int(m.group(3)) if m.group(3) else now.year
                 tm = TIME_RE.search(cell[m.end():m.end() + 40])
-                hour = int(tm.group(1) or tm.group(3)) if tm else 10
-                minute = int(tm.group(2) or 0) if tm else 0
+                if not tm:
+                    # Generic ticket pages often omit the exact hour; do not invent 10:00.
+                    continue
+                hour = int(tm.group(1) or tm.group(3))
+                minute = int(tm.group(2) or 0)
                 try:
                     dt = datetime(year, month, day, hour, minute)
                 except ValueError:
                     continue
-                if dt >= now - timedelta(days=1):
+                if dt >= now - timedelta(days=1) and dt.weekday() < 5:
                     events.append(make_event(club, "vvk", url, dt))
     return list({(e[0], e[2]): e for e in events}.values())
 
 
 def detect_vvk_fallback(club, url, html):
-    """Conservative fallback. Never turn ordinary weekend match dates into VVK."""
+    """Conservative fallback for club ticket/news pages.
+    No guessed 10:00 times and no weekend events: ordinary match dates must never
+    become VVK events. Only explicit weekday date+time windows are accepted.
+    """
     text = clean(html)
-    keyword = re.compile(r"(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitglieder|freier vorverkauf|ticketverkauf)")
+    keyword = re.compile(r"(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|freier vorverkauf|ticketverkauf|vvk-start)")
     if not keyword.search(text):
         return []
     events = []
@@ -145,8 +147,10 @@ def detect_vvk_fallback(club, url, html):
         day, month = int(m.group(1)), int(m.group(2))
         year = int(m.group(3)) if m.group(3) else datetime.now().year
         tm = TIME_RE.search(window)
-        hour = int(tm.group(1) or tm.group(3)) if tm else 10
-        minute = int(tm.group(2) or 0) if tm else 0
+        if not tm:
+            continue
+        hour = int(tm.group(1) or tm.group(3))
+        minute = int(tm.group(2) or 0)
         try:
             dt = datetime(year, month, day, hour, minute)
         except ValueError:
@@ -158,18 +162,18 @@ def detect_vvk_fallback(club, url, html):
 
 
 def detect_second_market(club, kind, url, html):
-    # Do not manufacture dates from ordinary match listings.
     return []
 
 
 def detect(club, kind, url, html):
     if kind == "bvb_calovo_vvk":
         return detect_bvb_calovo(url, html)
-    if kind == "vvk":
+    if kind in ("vvk", "news_vvk"):
         structured = detect_vvk_from_tables(club, url, html)
         return structured if structured else detect_vvk_fallback(club, url, html)
     if kind.startswith("second_market"):
         return detect_second_market(club, kind, url, html)
+    # info_only / ticket portals without explicit sale-date feeds are reference sources only.
     return []
 
 
@@ -199,7 +203,7 @@ def main():
         except Exception as exc:
             print("source failed", s["club"], exc)
     unique = {e[0]: e for e in events if e[2] >= datetime.now()}
-    lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VVK Radar V5//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:⚽ VVK Radar","X-WR-TIMEZONE:Europe/Berlin"]
+    lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VVK Radar V5.1//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:⚽ VVK Radar","X-WR-TIMEZONE:Europe/Berlin"]
     for e in sorted(unique.values(), key=lambda x: x[2]):
         lines += event_lines(*e)
     lines.append("END:VCALENDAR")
