@@ -7,7 +7,8 @@ from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data/sources.json"
 OUT = ROOT / "public/vvk-radar.ics"
-UA = "VVK-Radar/6.0"
+UA = "VVK-Radar/7.0"
+UCL_DRAW_DATE = datetime(2026, 8, 27)
 MONTHS = {
     "januar":1,"jan":1,"februar":2,"feb":2,"märz":3,"maerz":3,"mär":3,"mar":3,
     "april":4,"apr":4,"mai":5,"may":5,"juni":6,"jun":6,"juli":7,"jul":7,
@@ -15,16 +16,23 @@ MONTHS = {
     "november":11,"nov":11,"dezember":12,"dez":12,"dec":12
 }
 
+VVK_KEYWORD = re.compile(r"(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|freier vorverkauf|ticketverkauf|vvk-start|vente|mise en vente|ouverture de la billetterie|verkauf|venta|entradas?\s+(?:a la|für|en)\s+la|ticket sale|tickets?\s+on\s+sale)")
+UCL_KEYWORD = re.compile(r"(?i)(uefa\s+champions\s+league|champions\s+league|\bucl\b|ligaphase|league\s+phase)")
+
+
 def fetch(url):
     req=Request(url,headers={"User-Agent":UA})
     with urlopen(req,timeout=30) as r:
         return r.read().decode("utf-8",errors="ignore")
 
+
 def clean(s):
     return re.sub(r"\s+"," ",re.sub(r"<[^>]+>"," ",s)).strip()
 
+
 def esc(s):
     return s.replace("\\","\\\\").replace("\n","\\n").replace(",","\\,").replace(";","\\;")
+
 
 class TableParser(HTMLParser):
     def __init__(self):
@@ -42,6 +50,7 @@ class TableParser(HTMLParser):
             if self.row: self.rows.append(self.row)
             self.row=None
 
+
 DATE_RE = re.compile(
     r"(?<!\d)(\d{1,2})[./-](\d{1,2})(?:[./-](\d{2,4}))?(?!\d)"
     r"|(?<!\d)(\d{1,2})\s+(Januar|Jan|Februar|Feb|März|Maerz|Mär|Mar|April|Apr|Mai|May|Juni|Jun|Juli|Jul|August|Aug|September|Sep|Sept|Oktober|Okt|Oct|November|Nov|Dezember|Dez|Dec)\s+(20\d{2})(?!\d)",re.I)
@@ -50,7 +59,6 @@ CALOVO_EVENT_RE = re.compile(
     r"Beginn des Termins\s+(\d{1,2})\s+([A-Za-zÄÖÜäöü]+)\s+(20\d{2})"
     r"(?:\s+[A-Za-zÄÖÜäöü]{2,5}\.)?\s*(\d{1,2}):(\d{2})\s*"
     r"(.+?)(?=\s+Beschreibung einblenden|\s+Veranstaltungsort:|\s+Details ansehen|\s+Beginn des Termins|\s+Termine aus vergangenen Jahren|\s+Weitere Kalender|$)",re.I)
-VVK_KEYWORD = re.compile(r"(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|freier vorverkauf|ticketverkauf|vvk-start|vente|mise en vente|ouverture de la billetterie|verkauf|venta|entradas?\s+(?:a la|für|en)\s+la|ticket sale|tickets?\s+on\s+sale)")
 
 
 def parse_date_match(m, now=None):
@@ -62,12 +70,14 @@ def parse_date_match(m, now=None):
     if not month: return None
     return day,month,year
 
+
 def make_event(club,kind,url,dt,source_title=None):
     title=f"🔥🔥 {club} | ZWEITMARKT" if kind.startswith("second_market") else (f"🔥 {club} | VVK" if club=="FC Bayern" else f"{club} | VVK")
     if source_title:
         title += f" – {source_title}"
     uid=hashlib.sha1(f"{club}|{kind}|{dt.isoformat()}|{url}|{source_title or ''}".encode()).hexdigest()+"@vvk-radar"
     return uid,title,dt,url,kind
+
 
 def detect_calovo_vvk(club,url,html):
     text=clean(html); events=[]
@@ -84,29 +94,35 @@ def detect_calovo_vvk(club,url,html):
             events.append(make_event(club,"vvk",url,dt,title))
     return list({(e[0],e[2]):e for e in events}.values())
 
-def detect_vvk_from_tables(club,url,html):
+
+def detect_vvk_from_tables(club,url,html,require_ucl=False):
     parser=TableParser()
     try: parser.feed(html)
     except Exception: return []
     events=[]; now=datetime.now()
     for row in parser.rows:
         for cell in [c for c in row if VVK_KEYWORD.search(c)]:
+            if require_ucl and not UCL_KEYWORD.search(cell):
+                continue
             for m in DATE_RE.finditer(cell):
                 parsed=parse_date_match(m,now)
                 if not parsed: continue
-                day,month,year=parsed; tm=TIME_RE.search(cell[m.end():m.end()+50])
+                day,month,year=parsed
+                tm=TIME_RE.search(cell[m.end():m.end()+50])
                 if not tm: continue
                 try: dt=datetime(year,month,day,int(tm.group(1) or tm.group(3)),int(tm.group(2) or 0))
                 except ValueError: continue
                 if dt>=now-timedelta(days=1): events.append(make_event(club,"vvk",url,dt))
     return list({(e[0],e[2]):e for e in events}.values())
 
-def detect_vvk_fallback(club,url,html):
+
+def detect_vvk_fallback(club,url,html,require_ucl=False):
     text=clean(html); events=[]; now=datetime.now()
     if not VVK_KEYWORD.search(text): return []
     for m in DATE_RE.finditer(text):
-        window=text[max(0,m.start()-220):min(len(text),m.end()+320)]
+        window=text[max(0,m.start()-180):min(len(text),m.end()+260)]
         if not VVK_KEYWORD.search(window): continue
+        if require_ucl and not UCL_KEYWORD.search(window): continue
         parsed=parse_date_match(m,now)
         if not parsed: continue
         day,month,year=parsed; tm=TIME_RE.search(window)
@@ -116,18 +132,28 @@ def detect_vvk_fallback(club,url,html):
         if dt>=now-timedelta(days=1): events.append(make_event(club,"vvk",url,dt))
     return list({(e[0],e[2]):e for e in events}.values())
 
+
 def detect_second_market(club,kind,url,html):
     return []
+
 
 def detect(club,kind,url,html):
     if kind in ("bvb_calovo_vvk","calovo_vvk"):
         return detect_calovo_vvk(club,url,html)
-    if kind in ("vvk","news_vvk","ticket_request","ticket_portal","ucl_vvk"):
+    if kind == "ucl_vvk":
+        # Before the league-phase draw there are no opponent-specific UCL VVK dates.
+        # Never turn generic match dates or ticket-status ranges into fake drops.
+        if datetime.now() < UCL_DRAW_DATE:
+            return []
+        structured=detect_vvk_from_tables(club,url,html,require_ucl=True)
+        return structured if structured else detect_vvk_fallback(club,url,html,require_ucl=True)
+    if kind in ("vvk","news_vvk","ticket_request","ticket_portal"):
         structured=detect_vvk_from_tables(club,url,html)
         return structured if structured else detect_vvk_fallback(club,url,html)
     if kind.startswith("second_market"):
         return detect_second_market(club,kind,url,html)
     return []
+
 
 def event_lines(uid,title,dt,url,kind):
     end=dt+timedelta(minutes=30)
@@ -136,6 +162,7 @@ def event_lines(uid,title,dt,url,kind):
         lines += ["BEGIN:VALARM",f"TRIGGER:-P{days}D","ACTION:DISPLAY",f"DESCRIPTION:{label}","END:VALARM"]
     lines += ["BEGIN:VALARM","TRIGGER:-PT30M","ACTION:DISPLAY","DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten","END:VALARM","END:VEVENT"]
     return lines
+
 
 def main():
     sources=json.loads(DATA.read_text(encoding="utf-8"))["sources"]; events=[]
@@ -147,10 +174,11 @@ def main():
         except Exception as exc:
             print("source failed",s["club"],exc)
     unique={e[0]:e for e in events if e[2]>=datetime.now()}
-    lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VVK Radar V6.0//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:⚽ VVK Radar","X-WR-TIMEZONE:Europe/Berlin"]
+    lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//VVK Radar V7.0//DE","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:⚽ VVK Radar","X-WR-TIMEZONE:Europe/Berlin"]
     for e in sorted(unique.values(),key=lambda x:x[2]): lines+=event_lines(*e)
     lines.append("END:VCALENDAR")
     OUT.parent.mkdir(exist_ok=True); OUT.write_text("\r\n".join(lines)+"\r\n",encoding="utf-8")
     print(f"Wrote {len(unique)} events")
+
 
 if __name__=="__main__": main()
