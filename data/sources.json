@@ -1,5 +1,6 @@
 {
   "sources": [
+    {"club": "BVB", "type": "bvb_calovo_vvk", "url": "https://calovo.com/"},
     {"club": "BVB", "type": "vvk", "url": "https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html"},
     {"club": "Schalke 04", "type": "vvk", "url": "https://schalke04.de/veltins-arena/tickets/ticket-infos/"},
     {"club": "HSV", "type": "vvk", "url": "https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine"},
