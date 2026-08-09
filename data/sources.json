@@ -3,13 +3,13 @@
     {"club": "BVB", "type": "bvb_calovo_vvk", "url": "https://calovo.de/f/borussiadortmund/vvk-kalender-bvb-mitglieder"},
     {"club": "Schalke 04", "type": "vvk", "url": "https://schalke04.de/veltins-arena/tickets/ticket-infos/"},
     {"club": "HSV", "type": "vvk", "url": "https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine"},
-    {"club": "1. FC Köln", "type": "fixed_time_vvk", "url": "https://fc.de/service/stadionerlebnis/ticketing", "time": "10:00"},
+    {"club": "1. FC Köln", "type": "calovo_vvk", "url": "https://calovo.de/f/1fckoeln/vorverkaeufe-fc-maenner"},
     {"club": "Bayer 04 Leverkusen", "type": "news_vvk", "url": "https://www.bayer04.de/de-de/page/service/tickets"},
-    {"club": "FC Bayern", "type": "info_only", "url": "https://fcbayern.com/de/tickets/info/tageskarten"},
+    {"club": "FC Bayern", "type": "ticket_request", "url": "https://fcbayern.com/de/tickets/info/tageskarten"},
     {"club": "FC Bayern", "type": "second_market", "url": "https://fcbayern.com/de/tickets/info/faq-ticket-exchange"},
     {"club": "FC Bayern", "type": "second_market_status", "url": "https://fcbayern.com/de/tickets/status-ticketing"},
-    {"club": "PSG", "type": "info_only", "url": "https://billetterie.psg.fr/fr/"},
-    {"club": "Real Madrid", "type": "info_only", "url": "https://www.realmadrid.com/en-US/tickets"},
+    {"club": "PSG", "type": "ticket_portal", "url": "https://billetterie.psg.fr/fr/"},
+    {"club": "Real Madrid", "type": "ticket_portal", "url": "https://www.realmadrid.com/en-US/tickets"},
     {"club": "UEFA Champions League", "type": "fixtures", "url": "https://www.uefa.com/uefachampionsleague/fixtures-results/"}
   ]
 }
