@@ -1,108 +1,15 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//VVK Radar V3//DE
+PRODID:-//VVK Radar V4.1//DE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
-UID:995b86e054b07d7b3b7578c669d3ab9d3da5dabd@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260809T173000
-DTEND;TZID=Europe/Berlin:20260809T180000
-SUMMARY:BVB | VVK
-DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-BEGIN:VALARM
-TRIGGER:-P5D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK in 5 Tagen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-P3D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK in 3 Tagen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK morgen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-PT30M
-ACTION:DISPLAY
-DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:11c64173eb7d0218d503512293d9be6ff9c8d6ad@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260815T173000
-DTEND;TZID=Europe/Berlin:20260815T180000
-SUMMARY:BVB | VVK
-DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-BEGIN:VALARM
-TRIGGER:-P5D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK in 5 Tagen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-P3D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK in 3 Tagen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK morgen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-PT30M
-ACTION:DISPLAY
-DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:5ecd0cc512e583e2ff425a537a614e088491655b@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260820T183000
-DTEND;TZID=Europe/Berlin:20260820T190000
-SUMMARY:BVB | VVK
-DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-BEGIN:VALARM
-TRIGGER:-P5D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK in 5 Tagen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-P3D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK in 3 Tagen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-P1D
-ACTION:DISPLAY
-DESCRIPTION:🔔 VVK morgen
-END:VALARM
-BEGIN:VALARM
-TRIGGER:-PT30M
-ACTION:DISPLAY
-DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:8e6d5a6797556edde1b83e7d3f6d52ac37f857d9@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260824T100000
-DTEND;TZID=Europe/Berlin:20260824T103000
+UID:421bec043c8e80b2a820d1511b439841a2c083c1@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20260813T100000
+DTEND;TZID=Europe/Berlin:20260813T103000
 SUMMARY:HSV | VVK
 DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
 URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
@@ -130,10 +37,41 @@ DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:a8474fc303648fc93ea3250c0f1bc2389be1971a@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260829T100000
-DTEND;TZID=Europe/Berlin:20260829T103000
+UID:c2aa035fdb82abf1d44d9ed14640c05370315bcc@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20260820T100000
+DTEND;TZID=Europe/Berlin:20260820T103000
+SUMMARY:BVB | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK morgen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:108108db288c28414eab11de65628f190977f8bd@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20260915T100000
+DTEND;TZID=Europe/Berlin:20260915T103000
 SUMMARY:HSV | VVK
 DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
 URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
@@ -161,13 +99,13 @@ DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:fea65c15b4a0b8ad34019c7537ea1754840dab48@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260829T183000
-DTEND;TZID=Europe/Berlin:20260829T190000
-SUMMARY:BVB | VVK
-DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+UID:fdfcd01375402176871959774f682d70308e000b@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20260929T100000
+DTEND;TZID=Europe/Berlin:20260929T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 BEGIN:VALARM
@@ -192,13 +130,106 @@ DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:12da54cde0351f87c2dc9a5430afeef372dca876@vvk-radar
-DTSTAMP:20260809T170752Z
-DTSTART;TZID=Europe/Berlin:20260905T153000
-DTEND;TZID=Europe/Berlin:20260905T160000
-SUMMARY:BVB | VVK
-DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
-URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+UID:2b0223e12dbf9e03a3ae7f5222899fd34497d1b0@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20261006T100000
+DTEND;TZID=Europe/Berlin:20261006T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK morgen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:0b469105ff4601978bb3c65f83b07ff1822c556b@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20261110T100000
+DTEND;TZID=Europe/Berlin:20261110T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK morgen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:3a99bf42dc662fdeb32bcee790c532ce237b70ac@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20261117T100000
+DTEND;TZID=Europe/Berlin:20261117T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK morgen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:43307d1c9be6b83e1adabb8fae44173f0446d652@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20261124T100000
+DTEND;TZID=Europe/Berlin:20261124T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 BEGIN:VALARM
@@ -224,12 +255,74 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:726fd089d0f83f7380bbe125dd9abe609b26d5dc@vvk-radar
-DTSTAMP:20260809T170752Z
+DTSTAMP:20260809T175919Z
 DTSTART;TZID=Europe/Berlin:20261203T100000
 DTEND;TZID=Europe/Berlin:20261203T103000
 SUMMARY:BVB | VVK
 DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
 URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK morgen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c5887f33209ab51bf5f151f217eeb805edec9ffb@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20261208T100000
+DTEND;TZID=Europe/Berlin:20261208T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK morgen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK/Zweitmarkt startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:54c5f91e50549bbccf9c5d1cfcceb50204d7f26a@vvk-radar
+DTSTAMP:20260809T175919Z
+DTSTART;TZID=Europe/Berlin:20261215T100000
+DTEND;TZID=Europe/Berlin:20261215T103000
+SUMMARY:HSV | VVK
+DESCRIPTION:Art: vvk\\nOffizielle Quelle: https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
+URL:https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 BEGIN:VALARM
