@@ -1,27 +1,53 @@
-name: Update VVK Radar
+name: Update and Publish VVK Radar
 
 on:
   schedule:
     - cron: "15 * * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  update:
+  build-and-publish:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Build Apple calendar
         run: python src/build_calendar.py
-      - name: Commit calendar
+
+      - name: Commit updated calendar
         run: |
           git config user.name "VVK Radar"
           git config user.email "actions@users.noreply.github.com"
           git add public/vvk-radar.ics
           git diff --cached --quiet || git commit -m "Update VVK calendar"
-          git push
+          git push || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
