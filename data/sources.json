@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {"club": "BVB", "type": "vvk", "url": "https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html"},
+    {"club": "Schalke 04", "type": "vvk", "url": "https://schalke04.de/veltins-arena/tickets/ticket-infos/"},
+    {"club": "HSV", "type": "vvk", "url": "https://www.hsv.de/tickets/einzelkarten/ticketinfos-termine"},
+    {"club": "FC Bayern", "type": "vvk", "url": "https://fcbayern.com/de/tickets"},
+    {"club": "FC Bayern", "type": "second_market", "url": "https://fcbayern.com/de/tickets/info/faq-ticket-exchange"},
+    {"club": "FC Bayern", "type": "second_market_status", "url": "https://fcbayern.com/de/tickets/status-ticketing"},
+    {"club": "PSG", "type": "vvk", "url": "https://billetterie.psg.fr/fr/"},
+    {"club": "Real Madrid", "type": "vvk", "url": "https://www.realmadrid.com/en-US/tickets"},
+    {"club": "UEFA Champions League", "type": "fixtures", "url": "https://www.uefa.com/uefachampionsleague/fixtures-results/"}
+  ]
+}
