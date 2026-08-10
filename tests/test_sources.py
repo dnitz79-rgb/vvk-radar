@@ -17,9 +17,9 @@ def test_hsv_table_style_vvk():
 
 
 def test_schalke_news_style_vvk():
-    html = "Am Mittwoch (5.8.) beginnt um 10 Uhr der erste Vorverkauf der neuen Bundesliga-Saison."
+    html = "Am Mittwoch (12.8.) beginnt um 10 Uhr der nächste Vorverkauf."
     events = mod.from_text("Schalke 04", "https://schalke04.de/tickets", html)
-    assert any(e[2].strftime("%Y-%m-%d %H:%M") == "2026-08-05 10:00" for e in events)
+    assert any(e[2].strftime("%Y-%m-%d %H:%M") == "2026-08-12 10:00" for e in events)
 
 
 def test_bayern_does_not_invent_second_market_start():
