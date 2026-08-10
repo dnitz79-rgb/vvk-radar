@@ -12,7 +12,20 @@ def test_bayern_second_market():
  assert mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets',html)==[]
 def test_bayern_specific_date():
  html='Zweitmarkt ab 07.08.2026 um 10 Uhr freigeschaltet.'
- assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-07 10:00' for e in mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets',html))
+ events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets',html)
+ assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-07 10:00' and e[5] is False for e in events)
+def test_bayern_date_without_time_is_all_day():
+ html='Zweitmarkt spätestens am 07.08.2026 freigeschaltet.'
+ events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets',html)
+ assert len(events)==1
+ assert events[0][2].strftime('%Y-%m-%d')=='2026-08-07'
+ assert events[0][5] is True
+ assert 'UHRZEIT OFFEN' in events[0][1]
+def test_bayern_date_only_does_not_invent_time():
+ html='Zweitmarkt ab 07.08.2026.'
+ events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets',html)
+ assert len(events)==1
+ assert events[0][2].hour==0 and events[0][2].minute==0
 def test_psg():
  html='Mise en vente le 18/08/2026 à 10:00 pour le grand public.'
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-18 10:00' for e in mod.detect('PSG','ticket_portal','https://billetterie.psg.fr/fr/',html))
