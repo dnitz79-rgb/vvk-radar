@@ -10,8 +10,8 @@ def test_schalke():
 def test_bayern_second_market():
  assert mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets','Der Ticket-Zweitmarkt wird in der Regel freigeschaltet.')==[]
 def test_bayern_textual_date_only():
- events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets','Der Ticket-Zweitmarkt steht spätestens am 7. August 2026 für Mitglieder zur Verfügung.')
- assert len(events)==1 and events[0][2].strftime('%Y-%m-%d')=='2026-08-07' and events[0][5] is True
+ events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets','Der Ticket-Zweitmarkt steht spätestens am 12. August 2026 für Mitglieder zur Verfügung.')
+ assert len(events)==1 and events[0][2].strftime('%Y-%m-%d')=='2026-08-12' and events[0][5] is True
 def test_bayern_date_and_time():
  events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets','Zweitmarkt ab 12.08.2026 um 10 Uhr freigeschaltet.')
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-12 10:00' and e[5] is False for e in events)
@@ -19,8 +19,8 @@ def test_psg():
  html='Mise en vente le 18/08/2026 à 10:00 pour le grand public.'
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-18 10:00' for e in mod.detect('PSG','ticket_portal','https://billetterie.psg.fr/fr/',html))
 def test_real():
- html='The general public can buy tickets starting Wednesday, April 29, 2026, at 12:00 pm.'
- assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-04-29 12:00' for e in mod.detect('Real Madrid','ticket_portal','https://www.realmadrid.com/en-US/tickets',html))
+ html='The general public can buy tickets starting Wednesday, August 19, 2026, at 12:00 pm.'
+ assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-19 12:00' for e in mod.detect('Real Madrid','ticket_portal','https://www.realmadrid.com/en-US/tickets',html))
 def test_real_available_soon_is_not_event():
  assert mod.detect('Real Madrid','ticket_portal','https://www.realmadrid.com/en-US/tickets','Tickets available soon for the match.')==[]
 def test_bvb_calovo():
