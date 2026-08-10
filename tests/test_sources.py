@@ -3,7 +3,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('build_calendar',ROOT/'src'/'build_calendar.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
 def test_hsv():
- html='<table><tr><td>RB Leipzig</td><td>Mitgliedervorverkauf: 13.08.26 ab 10 Uhr</td></tr></table>'
+ html='<table><tr><td>RB Leipzig</td><td>Mitgl.-VVK: 13.08.26 ab 10 Uhr</td></tr></table>'
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-13 10:00' for e in mod.detect('HSV','vvk','https://hsv.de/tickets',html))
 def test_schalke():
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-12 10:00' for e in mod.from_text('Schalke 04','https://schalke04.de/tickets','Am Mittwoch (12.8.) beginnt um 10 Uhr der nächste Vorverkauf.'))
