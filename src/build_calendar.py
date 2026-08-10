@@ -15,7 +15,7 @@ def now():return datetime.now(TZ)
 def clean(s):return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',s)).strip()
 def esc(s):return s.replace('\\','\\\\').replace('\n','\\n').replace(',','\\,').replace(';','\\;')
 def fetch(url):
- req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/9.0)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8'})
+ req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/10.0)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8'})
  with urlopen(req,timeout=30) as r:return r.read().decode('utf-8',errors='ignore')
 class Tables(HTMLParser):
  def __init__(self):super().__init__(convert_charrefs=True);self.rows=[];self.row=None;self.cell=None
@@ -34,10 +34,11 @@ def parsed(m):
  n=now()
  if m.group(1):return int(m.group(1)),int(m.group(2)),int(m.group(3) or n.year)
  return int(m.group(4)),MONTHS.get(m.group(5).lower()),int(m.group(6))
-def make_event(club,kind,url,dt,label=''):
+def make_event(club,kind,url,dt,label='',all_day=False):
  title=f'🔥🔥 {club} | ZWEITMARKT' if kind.startswith('second') else f'🔥 {club} | VVK'
+ if all_day:title+=' 📌 DATUM – UHRZEIT OFFEN'
  if label:title+=f' – {clean(label)[:220]}'
- uid=hashlib.sha1(f'{club}|{kind}|{dt.isoformat()}|{url}|{label}'.encode()).hexdigest()+'@vvk-radar';return uid,title,dt,url,kind
+ uid=hashlib.sha1(f'{club}|{kind}|{dt.isoformat()}|{url}|{label}|{all_day}'.encode()).hexdigest()+'@vvk-radar';return uid,title,dt,url,kind,all_day
 def from_text(club,url,text,require_ucl=False):
  text=clean(text);out=[];n=now()
  for m in DATE.finditer(text):
@@ -58,51 +59,44 @@ def detect_calovo(club,url,html):
   except ValueError:continue
   if dt>=now()-timedelta(days=1):out.append(make_event(club,'vvk',url,dt,m.group(6)))
  return list({(e[0],e[2]):e for e in out}.values())
+def parse_partial_date(s):
+ m=re.search(r'(\d{1,2})[./-](\d{1,2})[./-](20\d{2})',s)
+ return (int(m.group(3)),int(m.group(2)),int(m.group(1))) if m else None
 
-# Club-specific strategies. These intentionally do NOT share the generic parser.
 def detect_bayern(club,kind,url,html):
  text=clean(html);out=[]
- # Bayern publishes ticket-request deadlines and explicit second-market opening times.
- patterns=[
+ # Exact time -> timed event. Date without time -> all-day checkpoint, never invent 10:00.
+ exact=[
   re.compile(r'(?i)(?:ticket[- ]?anfragen?|anfragen?)\D{0,80}(\d{1,2}[./-]\d{1,2}[./-]20\d{2})\D{0,80}(\d{1,2})(?::(\d{2}))?\s*uhr'),
-  re.compile(r'(?i)(?:zweitmarkt|ticket[- ]?börse|ticket exchange)\D{0,120}(?:ab|spätestens|freigeschaltet(?:\s+ab)?)\D{0,80}(\d{1,2}[./-]\d{1,2}[./-]20\d{2})\D{0,80}(\d{1,2})(?::(\d{2}))?\s*uhr'),
- ]
- if kind=='second_market':patterns=patterns[1:]
+  re.compile(r'(?i)(?:zweitmarkt|ticket[- ]?börse|ticket exchange)\D{0,120}(?:ab|spätestens|freigeschaltet(?:\s+ab)?)\D{0,80}(\d{1,2}[./-]\d{1,2}[./-]20\d{2})\D{0,80}(\d{1,2})(?::(\d{2}))?\s*uhr')]
+ partial=[re.compile(r'(?i)(?:zweitmarkt|ticket[- ]?börse|ticket exchange)\D{0,120}(?:ab|spätestens|freigeschaltet(?:\s+ab)?)\D{0,80}(\d{1,2}[./-]\d{1,2}[./-]20\d{2})')]
+ patterns=exact[1:] if kind=='second_market' else exact
  for p in patterns:
   for m in p.finditer(text):
-   dm=re.match(r'(\d{1,2})[./-](\d{1,2})[./-](20\d{2})',m.group(1));
-   if not dm:continue
-   try:dt=datetime(int(dm.group(3)),int(dm.group(2)),int(dm.group(1)),int(m.group(2)),int(m.group(3) or 0),tzinfo=TZ)
-   except ValueError:continue
+   y,mo,d=parse_partial_date(m.group(1));dt=datetime(y,mo,d,int(m.group(2)),int(m.group(3) or 0),tzinfo=TZ)
    if dt>=now()-timedelta(days=1):out.append(make_event(club,'second_market' if kind=='second_market' else 'vvk',url,dt,m.group(0)))
+ if kind=='second_market':
+  for p in partial:
+   for m in p.finditer(text):
+    y,mo,d=parse_partial_date(m.group(1));dt=datetime(y,mo,d,tzinfo=TZ)
+    if dt>=now()-timedelta(days=1) and not any(e[2].date()==dt.date() for e in out):out.append(make_event(club,'second_market',url,dt,m.group(0),True))
  return list({(e[0],e[2]):e for e in out}.values())
-
 def detect_psg(club,url,html):
- text=clean(html);out=[]
- # PSG uses French sales language and often puts date/time near "mise en vente".
- sale=re.compile(r'(?i)(mise\s+en\s+vente|ouverture\s+de\s+la\s+billetterie|vente\s+grand\s+public)')
+ text=clean(html);out=[];sale=re.compile(r'(?i)(mise\s+en\s+vente|ouverture\s+de\s+la\s+billetterie|vente\s+grand\s+public)')
  for m in sale.finditer(text):
   w=text[m.start():m.start()+700];dm=DATE.search(w);tm=TIME.search(w)
   if not dm or not tm:continue
-  d,mo,y=parsed(dm)
-  try:dt=datetime(y,mo,d,int(tm.group(1) or tm.group(3)),int(tm.group(2) or 0),tzinfo=TZ)
-  except ValueError:continue
+  d,mo,y=parsed(dm);dt=datetime(y,mo,d,int(tm.group(1) or tm.group(3)),int(tm.group(2) or 0),tzinfo=TZ)
   if dt>=now()-timedelta(days=1):out.append(make_event(club,'vvk',url,dt,w))
  return list({(e[0],e[2]):e for e in out}.values())
-
 def detect_real(club,url,html):
- text=clean(html);out=[]
- sale=re.compile(r'(?i)(tickets?\s+(?:are\s+)?on\s+sale|general\s+public|available\s+soon|tickets?\s+available)')
+ text=clean(html);out=[];sale=re.compile(r'(?i)(tickets?\s+(?:are\s+)?on\s+sale|general\s+public|available\s+soon|tickets?\s+available)')
  for m in sale.finditer(text):
   w=text[m.start():m.start()+900];dm=DATE.search(w);tm=TIME.search(w)
-  # "available soon" alone is deliberately ignored; it is not a sale time.
   if not dm or not tm:continue
-  d,mo,y=parsed(dm)
-  try:dt=datetime(y,mo,d,int(tm.group(1) or tm.group(3)),int(tm.group(2) or 0),tzinfo=TZ)
-  except ValueError:continue
+  d,mo,y=parsed(dm);dt=datetime(y,mo,d,int(tm.group(1) or tm.group(3)),int(tm.group(2) or 0),tzinfo=TZ)
   if dt>=now()-timedelta(days=1):out.append(make_event(club,'vvk',url,dt,w))
  return list({(e[0],e[2]):e for e in out}.values())
-
 def detect(club,kind,url,html):
  if club=='FC Bayern':return detect_bayern(club,kind,url,html)
  if club=='PSG':return [] if kind=='ucl_vvk' and now()<UCL_DRAW_DATE else detect_psg(club,url,html)
@@ -122,15 +116,18 @@ def alarms():
  for d,l in ((5,'🔔 VVK in 5 Tagen'),(3,'🔔 VVK in 3 Tagen'),(1,'🔔 VVK MORGEN')):a+=['BEGIN:VALARM',f'TRIGGER:-P{d}D','ACTION:DISPLAY',f'DESCRIPTION:{l}','END:VALARM']
  return a+['BEGIN:VALARM','TRIGGER:-PT30M','ACTION:DISPLAY','DESCRIPTION:🚨 VVK startet in 30 Minuten','END:VALARM']
 def event_lines(e):
- uid,title,dt,url,kind=e;end=dt+timedelta(minutes=30)
- return ['BEGIN:VEVENT',f'UID:{uid}',f'DTSTAMP:{datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")}',f'DTSTART;TZID=Europe/Berlin:{dt.strftime("%Y%m%dT%H%M%S")}',f'DTEND;TZID=Europe/Berlin:{end.strftime("%Y%m%dT%H%M%S")}',f'SUMMARY:{esc(title)}',f'DESCRIPTION:{esc("Art: "+kind+"\\nQuelle: "+url)}',f'URL:{url}','STATUS:CONFIRMED','TRANSP:OPAQUE']+alarms()+['END:VEVENT']
+ uid,title,dt,url,kind,all_day=e
+ if all_day:
+  end=dt+timedelta(days=1);start=dt.strftime('%Y%m%d');end_s=end.strftime('%Y%m%d');head=[f'DTSTART;VALUE=DATE:{start}',f'DTEND;VALUE=DATE:{end_s}'];alarm=[]
+ else:
+  end=dt+timedelta(minutes=30);head=[f'DTSTART;TZID=Europe/Berlin:{dt.strftime("%Y%m%dT%H%M%S")}',f'DTEND;TZID=Europe/Berlin:{end.strftime("%Y%m%dT%H%M%S")}'];alarm=alarms()
+ return ['BEGIN:VEVENT',f'UID:{uid}',f'DTSTAMP:{datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")}']+head+[f'SUMMARY:{esc(title)}',f'DESCRIPTION:{esc("Art: "+kind+"\\nQuelle: "+url)}',f'URL:{url}','STATUS:CONFIRMED','TRANSP:OPAQUE']+alarm+['END:VEVENT']
 def main():
  found=[]
  for s in json.loads(DATA.read_text(encoding='utf-8'))['sources']:
-  try:
-   got=detect(s['club'],s['type'],s['url'],fetch(s['url']));print(f"{s['club']}: {len(got)} events");found+=got
+  try:found+=detect(s['club'],s['type'],s['url'],fetch(s['url']))
   except Exception as ex:print(f"source failed {s['club']}: {ex}")
- n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V9.0//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
+ n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V10.0//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
  for e in sorted(unique.values(),key=lambda x:x[2]):cal+=event_lines(e)
  OUT.parent.mkdir(exist_ok=True);OUT.write_text('\r\n'.join(cal+['END:VCALENDAR'])+'\r\n',encoding='utf-8');print(f'Wrote {len(unique)} events')
 if __name__=='__main__':main()
