@@ -16,7 +16,7 @@ def test_bayern_date_and_time():
  events=mod.detect('FC Bayern','second_market','https://fcbayern.com/tickets','Zweitmarkt ab 12.08.2026 um 10 Uhr freigeschaltet.')
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-12 10:00' and e[5] is False for e in events)
 def test_psg():
- html='Mise en vente le 18 août 2026 à 10:00 pour le grand public.'
+ html='Mise en vente le 18/08/2026 à 10:00 pour le grand public.'
  assert any(e[2].strftime('%Y-%m-%d %H:%M')=='2026-08-18 10:00' for e in mod.detect('PSG','ticket_portal','https://billetterie.psg.fr/fr/',html))
 def test_real():
  html='The general public can buy tickets starting Wednesday, April 29, 2026, at 12:00 pm.'
