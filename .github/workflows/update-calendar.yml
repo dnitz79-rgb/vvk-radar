@@ -2,11 +2,10 @@ name: Update and Publish VVK Radar
 
 on:
   schedule:
-    # Four checks per day so newly announced VVK times are picked up quickly.
     - cron: "15 */6 * * *"
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, v8-parser]
 
 permissions:
   contents: write
@@ -25,14 +24,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Build Apple calendar
         run: python src/build_calendar.py
-
       - name: Validate calendar
         run: |
           python - <<'PY'
@@ -44,7 +40,6 @@ jobs:
           assert text.count("BEGIN:VEVENT") == text.count("END:VEVENT")
           print("ICS validation OK:", text.count("BEGIN:VEVENT"), "events")
           PY
-
       - name: Commit updated calendar
         run: |
           git config user.name "VVK Radar"
@@ -52,15 +47,12 @@ jobs:
           git add public/vvk-radar.ics
           git diff --cached --quiet || git commit -m "Update VVK calendar"
           git push || true
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
