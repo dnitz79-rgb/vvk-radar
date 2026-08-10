@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [v8-parser]
+    branches: [main, v8-parser]
   workflow_dispatch:
 
 permissions:
