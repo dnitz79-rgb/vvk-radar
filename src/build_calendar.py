@@ -7,12 +7,12 @@ from zoneinfo import ZoneInfo
 
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data/sources.json'; OUT=ROOT/'public/vvk-radar.ics'; TZ=ZoneInfo('Europe/Berlin')
 UCL_DRAW_DATE=datetime(2026,8,27,tzinfo=TZ)
-MONTHS={'januar':1,'jan':1,'februar':2,'feb':2,'märz':3,'maerz':3,'mär':3,'mar':3,'april':4,'apr':4,'mai':5,'may':5,'juni':6,'jun':6,'juli':7,'jul':7,'august':8,'aug':8,'september':9,'sep':9,'sept':9,'oktober':10,'okt':10,'oct':10,'november':11,'nov':11,'dezember':12,'dez':12,'dec':12}
-VVK=re.compile(r'(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|mitgliedervvk|mitgl\.?[- ]?vvk|freier vorverkauf|freier verkauf|ticketverkauf|vvk[- ]?start|vente|mise en vente|ouverture de la billetterie|verkauf|venta|ticket sale|tickets?\s+on\s+sale)')
-UCL=re.compile(r'(?i)(uefa\s+champions\s+league|champions\s+league|\bucl\b|ligaphase|league\s+phase)')
+MONTHS={'januar':1,'jan':1,'februar':2,'feb':2,'märz':3,'maerz':3,'mär':3,'mar':3,'april':4,'apr':4,'mai':5,'may':5,'juni':6,'jun':6,'juli':7,'jul':7,'august':8,'aug':8,'september':9,'sep':9,'sept':9,'oktober':10,'okt':10,'oct':10,'november':11,'nov':11,'dezember':12,'dez':12,'dec':12,'janvier':1,'février':2,'fevrier':2,'mars':3,'avril':4,'mai':5,'juin':6,'juillet':7,'août':8,'aout':8,'septembre':9,'octobre':10,'novembre':11,'décembre':12,'decembre':12}
+VVK=re.compile(r'(vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|mitgliedervvk|mitgl\.?[- ]?vvk|freier vorverkauf|freier verkauf|ticketverkauf|vvk[- ]?start|vente|mise en vente|ouverture de la billetterie|verkauf|venta|ticket sale|tickets?\s+on\s+sale)',re.I)
+UCL=re.compile(r'(uefa\s+champions\s+league|champions\s+league|\bucl\b|ligaphase|league\s+phase)',re.I)
 NUM_DATE=re.compile(r'(?<!\d)(\d{1,2})[./-](\d{1,2})(?:[./-](\d{2,4}))?(?!\d)')
-TEXT_DATE=re.compile(r'(?i)(?<!\w)(\d{1,2})\.?\s+(Januar|Jan|Februar|Feb|März|Maerz|Mär|Mar|April|Apr|Mai|May|Juni|Jun|Juli|Jul|August|Aug|September|Sep|Sept|Oktober|Okt|Oct|November|Nov|Dezember|Dez|Dec)\.?\s+(20\d{2})(?!\d)')
-EN_DATE=re.compile(r'(?i)(?<!\w)(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,)?\s+(20\d{2})(?!\d)')
+TEXT_DATE=re.compile(r'(?<!\w)(\d{1,2})\.?\s+([A-Za-zÀ-ÿ]+)\.?\s+(20\d{2})(?!\d)',re.I)
+EN_DATE=re.compile(r'(?<!\w)(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,)?\s+(20\d{2})(?!\d)',re.I)
 TIME=re.compile(r'(?<!\d)(\d{1,2}):(\d{2})\s*(?:Uhr|h|pm|am)?|(?<!\d)(\d{1,2})\s*(?:Uhr|h)\b|(?<!\d)(\d{1,2}):(\d{2})\s*(?:pm|am)\b',re.I)
 CALOVO=re.compile(r'Beginn des Termins\s+(\d{1,2})\s+([A-Za-zÄÖÜäöü]+)\s+(20\d{2})(?:\s+[A-Za-zÄÖÜäöü]{2,5}\.)?\s*(\d{1,2}):(\d{2})\s*(.+?)(?=\s+Beschreibung einblenden|\s+Veranstaltungsort:|\s+Details ansehen|\s+Beginn des Termins|\s+Weitere Kalender|$)',re.I)
 
@@ -20,7 +20,7 @@ def now(): return datetime.now(TZ)
 def clean(s): return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',s)).strip()
 def esc(s): return s.replace('\\','\\\\').replace('\n','\\n').replace(',','\\,').replace(';','\\;')
 def fetch(url):
- req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/11.0)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8,fr;q=0.7'})
+ req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/11.1)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8,fr;q=0.7'})
  with urlopen(req,timeout=30) as r:return r.read().decode('utf-8',errors='ignore')
 
 class Tables(HTMLParser):
@@ -42,7 +42,9 @@ def date_matches(text):
  for m in NUM_DATE.finditer(text):
   y=int(m.group(3) or now().year); y+=2000 if y<100 else 0
   yield m,int(m.group(1)),int(m.group(2)),y
- for m in TEXT_DATE.finditer(text): yield m,int(m.group(1)),MONTHS[m.group(2).lower()],int(m.group(3))
+ for m in TEXT_DATE.finditer(text):
+  month=MONTHS.get(m.group(2).lower())
+  if month: yield m,int(m.group(1)),month,int(m.group(3))
  for m in EN_DATE.finditer(text): yield m,int(m.group(2)),MONTHS[m.group(1).lower()[:3]],int(m.group(3))
 
 def find_date(text,after=0):
@@ -90,36 +92,33 @@ def detect_calovo(club,url,html):
 def detect_bayern(club,kind,url,html):
  text=clean(html);out=[]
  lead=r'(?:zweitmarkt|ticket[- ]?börse|ticket exchange)'
- exact=re.compile(r'(?i)'+lead+r'.{0,180}?(?:ab|spätestens|freigeschaltet(?:\s+ab)?)?.{0,80}?(?:'+NUM_DATE.pattern+r'|'+TEXT_DATE.pattern+r').{0,80}?')
+ exact=re.compile(lead+r'.{0,180}?(?:ab|spätestens|freigeschaltet(?:\s+ab)?)?.{0,80}?(?:'+NUM_DATE.pattern+r'|'+TEXT_DATE.pattern+r').{0,80}?',re.I)
  for m in exact.finditer(text):
   w=m.group(0);dm=find_date(w);tm=find_time(w)
   if not dm:continue
   _,d,mo,y=dm
-  if kind=='second_market' and not re.search(lead,w,re.I):continue
   if tm:
    dt=datetime(y,mo,d,*tm,tzinfo=TZ); out.append(make_event(club,'second_market' if kind=='second_market' else 'vvk',url,dt,w))
   elif kind=='second_market':
    dt=datetime(y,mo,d,tzinfo=TZ);out.append(make_event(club,'second_market',url,dt,w,True))
- # Also retain explicit ticket-request deadlines as date-only checkpoints, but only when requested as VVK.
  if kind!='second_market':
   for m,d,mo,y in date_matches(text):
    w=text[max(0,m.start()-120):m.end()+180]
-   if re.search(r'(?i)ticket[- ]?anfragen?.{0,120}(bis|frist|möglich)',w):
+   if re.search(r'ticket[- ]?anfragen?.{0,120}(bis|frist|möglich)',w,re.I):
     dt=datetime(y,mo,d,tzinfo=TZ);out.append(make_event(club,'vvk',url,dt,w,True))
  return list({(e[0],e[2]):e for e in out}.values())
 
 def detect_psg(club,url,html):
- text=clean(html);out=[];sale=re.compile(r'(?i)(mise\s+en\s+vente|ouverture\s+de\s+la\s+billetterie|vente\s+grand\s+public|ouverture\s+à\s+la\s+vente)')
+ text=clean(html);out=[];sale=re.compile(r'(mise\s+en\s+vente|ouverture\s+de\s+la\s+billetterie|vente\s+grand\s+public|ouverture\s+à\s+la\s+vente)',re.I)
  for m in sale.finditer(text):
   w=text[m.start():m.start()+900];dm=find_date(w);tm=find_time(w)
-  if not dm:continue
-  _,d,mo,y=dm
-  if not tm:continue
-  dt=datetime(y,mo,d,*tm,tzinfo=TZ);out.append(make_event(club,'vvk',url,dt,w))
+  if not dm or not tm:continue
+  _,d,mo,y=dm;dt=datetime(y,mo,d,*tm,tzinfo=TZ)
+  if dt>=now()-timedelta(days=1):out.append(make_event(club,'vvk',url,dt,w))
  return list({(e[0],e[2]):e for e in out}.values())
 
 def detect_real(club,url,html):
- text=clean(html);out=[];sale=re.compile(r'(?i)(tickets?\s+(?:are\s+)?on\s+sale|general\s+public|available\s+soon|tickets?\s+available|ticket purchase window opened)')
+ text=clean(html);out=[];sale=re.compile(r'(tickets?\s+(?:are\s+)?on\s+sale|general\s+public|available\s+soon|tickets?\s+available|ticket purchase window opened)',re.I)
  for m in sale.finditer(text):
   w=text[m.start():m.start()+1000];dm=find_date(w);tm=find_time(w)
   if not dm or not tm:continue
@@ -158,7 +157,7 @@ def main():
  for s in json.loads(DATA.read_text(encoding='utf-8'))['sources']:
   try:found+=detect(s['club'],s['type'],s['url'],fetch(s['url']))
   except Exception as ex:print(f"source failed {s['club']}: {ex}")
- n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V11.0//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
+ n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V11.1//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
  for e in sorted(unique.values(),key=lambda x:x[2]):cal+=event_lines(e)
  OUT.parent.mkdir(exist_ok=True);OUT.write_text('\r\n'.join(cal+['END:VCALENDAR'])+'\r\n',encoding='utf-8');print(f'Wrote {len(unique)} events')
 if __name__=='__main__':main()
