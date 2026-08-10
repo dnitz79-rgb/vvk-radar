@@ -15,7 +15,7 @@ def now():return datetime.now(TZ)
 def clean(s):return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',s)).strip()
 def esc(s):return s.replace('\\','\\\\').replace('\n','\\n').replace(',','\\,').replace(';','\\;')
 def fetch(url):
- req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/11.2)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8'})
+ req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/11.1)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8'})
  with urlopen(req,timeout=30) as r:return r.read().decode('utf-8',errors='ignore')
 class Tables(HTMLParser):
  def __init__(self):super().__init__(convert_charrefs=True);self.rows=[];self.row=None;self.cell=None
@@ -125,7 +125,7 @@ def main():
  for s in json.loads(DATA.read_text(encoding='utf-8'))['sources']:
   try:found+=detect(s['club'],s['type'],s['url'],fetch(s['url']))
   except Exception as ex:print(f'source failed {s["club"]}: {ex}')
- n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V11.2//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
+ n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V11.1//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
  for e in sorted(unique.values(),key=lambda x:x[2]):cal+=event_lines(e)
  OUT.parent.mkdir(exist_ok=True);OUT.write_text('\r\n'.join(cal+['END:VCALENDAR'])+'\r\n',encoding='utf-8');print(f'Wrote {len(unique)} events')
 if __name__=='__main__':main()
