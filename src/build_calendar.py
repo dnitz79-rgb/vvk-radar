@@ -8,14 +8,16 @@ ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/sources.json';OUT=ROOT/
 MONTHS={'januar':1,'jan':1,'februar':2,'feb':2,'märz':3,'maerz':3,'mär':3,'mar':3,'april':4,'apr':4,'mai':5,'may':5,'juni':6,'jun':6,'juli':7,'jul':7,'august':8,'aug':8,'september':9,'sep':9,'sept':9,'oktober':10,'okt':10,'oct':10,'november':11,'nov':11,'dezember':12,'dez':12,'dec':12,'january':1,'february':2,'march':3,'april':4,'may':5,'june':6,'july':7,'august':8,'september':9,'october':10,'november':11,'december':12}
 VVK=re.compile(r'(?i)(vorverkauf|vorverkaufstermin|verkaufsstart|mitgliedervorverkauf|mitgliedervvk|mitgl\.?[- ]?vvk|freier vorverkauf|freier verkauf|ticketverkauf|vvk[- ]?start|vente|mise en vente|ouverture de la billetterie|verkauf|venta|ticket sale|tickets?\s+on\s+sale)')
 UCL=re.compile(r'(?i)(uefa\s+champions\s+league|champions\s+league|\bucl\b|ligaphase|league\s+phase)')
-DATE=re.compile(r'(?<!\d)(\d{1,2})[./-](\d{1,2})(?:[./-](\d{2,4}))?(?!\d)|(?<!\w)(\d{1,2})\s+(Januar|Jan|Februar|Feb|März|Maerz|Mär|Mar|April|Apr|Mai|May|Juni|Jun|Juli|Jul|August|Aug|September|Sep|Sept|Oktober|Okt|Oct|November|Nov|Dezember|Dez|Dec)\s+(20\d{2})(?!\d)|(?<!\w)(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,)?\s+(20\d{2})(?!\d)',re.I)
+NUM_DATE=re.compile(r'(?<!\d)(\d{1,2})[./-](\d{1,2})(?:[./-](\d{2,4}))?(?!\d)')
+TEXT_DATE=re.compile(r'(?<!\w)(\d{1,2})\.?\s+([A-Za-zÀ-ÿ]+)\.?\s+(20\d{2})(?!\d)',re.I)
+EN_DATE=re.compile(r'(?<!\w)(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)\s+(\d{1,2})(?:st|nd|rd|th)?(?:,)?\s+(20\d{2})(?!\d)',re.I)
 TIME=re.compile(r'(?<!\d)(\d{1,2}):(\d{2})\s*(?:Uhr|h|pm|am)?|(?<!\d)(\d{1,2})\s*(?:Uhr|h)\b|(?<!\d)(\d{1,2}):(\d{2})\s*(?:pm|am)\b',re.I)
 CALOVO=re.compile(r'Beginn des Termins\s+(\d{1,2})\s+([A-Za-zÄÖÜäöü]+)\s+(20\d{2})(?:\s+[A-Za-zÄÖÜäöü]{2,5}\.)?\s*(\d{1,2}):(\d{2})\s*(.+?)(?=\s+Beschreibung einblenden|\s+Veranstaltungsort:|\s+Details ansehen|\s+Beginn des Termins|\s+Weitere Kalender|$)',re.I)
 def now():return datetime.now(TZ)
 def clean(s):return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',s)).strip()
 def esc(s):return s.replace('\\','\\\\').replace('\n','\\n').replace(',','\\,').replace(';','\\;')
 def fetch(url):
- req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/11.1)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8'})
+ req=Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; VVK-Radar/11.3)','Accept-Language':'de-DE,de;q=0.9,en;q=0.8'})
  with urlopen(req,timeout=30) as r:return r.read().decode('utf-8',errors='ignore')
 class Tables(HTMLParser):
  def __init__(self):super().__init__(convert_charrefs=True);self.rows=[];self.row=None;self.cell=None
@@ -30,6 +32,15 @@ class Tables(HTMLParser):
   elif t=='tr' and self.row is not None:
    if self.row:self.rows.append(self.row)
    self.row=None
+def date_matches(text):
+ for m in NUM_DATE.finditer(text):
+  y=int(m.group(3) or now().year);y+=2000 if y<100 else 0;yield m,int(m.group(1)),int(m.group(2)),y
+ for m in TEXT_DATE.finditer(text):
+  mo=MONTHS.get(m.group(2).lower())
+  if mo:yield m,int(m.group(1)),mo,int(m.group(3))
+ for m in EN_DATE.finditer(text):
+  mo=MONTHS.get(m.group(1).lower()[:3])
+  if mo:yield m,int(m.group(2)),mo,int(m.group(3))
 def parsed(m):
  if m.group(1):
   y=int(m.group(3) or now().year);y+=2000 if y<100 else 0;return int(m.group(1)),int(m.group(2)),y
@@ -42,12 +53,12 @@ def make_event(club,kind,url,dt,label='',all_day=False):
  uid=hashlib.sha1(f'{club}|{kind}|{dt.isoformat()}|{url}|{label}|{all_day}'.encode()).hexdigest()+'@vvk-radar';return uid,title,dt,url,kind,all_day
 def from_text(club,url,text,require_ucl=False):
  text=clean(text);out=[]
- for m in DATE.finditer(text):
+ for m,d,mo,y in date_matches(text):
   w=text[max(0,m.start()-450):min(len(text),m.end()+650)]
   if not VVK.search(w) or (require_ucl and not UCL.search(w)):continue
-  d,mo,y=parsed(m);tm=TIME.search(w)
+  tm=find_time(w)
   if not tm or not mo:continue
-  try:dt=datetime(y,mo,d,*([int(tm.group(1) or tm.group(3) or tm.group(4)),int(tm.group(2) or tm.group(5) or 0)]),tzinfo=TZ)
+  try:dt=datetime(y,mo,d,*tm,tzinfo=TZ)
   except (ValueError,TypeError):continue
   if dt>=now()-timedelta(days=1):out.append(make_event(club,'vvk',url,dt,w))
  return list({(e[0],e[2]):e for e in out}.values())
@@ -66,13 +77,10 @@ def detect_bayern(club,kind,url,html):
   w=text[max(0,m.start()-220):min(len(text),m.end()+220)]
   if not re.search(r'(?i)(zweitmarkt|ticket[- ]?börse|ticket exchange)',w):continue
   tm=find_time(w)
-  try:
-   dt=datetime(y,mo,d,*tm,tzinfo=TZ) if tm else datetime(y,mo,d,tzinfo=TZ)
+  try:dt=datetime(y,mo,d,*tm,tzinfo=TZ) if tm else datetime(y,mo,d,tzinfo=TZ)
   except ValueError:continue
   if dt>=now()-timedelta(days=1):out.append(make_event(club,'second_market',url,dt,w,not bool(tm)))
  return list({(e[0],e[2]):e for e in out}.values())
-def date_matches(text):
- for m in DATE.finditer(text):yield m,*parsed(m)
 def find_time(text):
  m=TIME.search(text)
  if not m:return None
@@ -83,17 +91,17 @@ def find_time(text):
 def detect_psg(club,url,html):
  text=clean(html);out=[];sale=re.compile(r'(?i)(mise\s+en\s+vente|ouverture\s+de\s+la\s+billetterie|vente\s+grand\s+public)')
  for m in sale.finditer(text):
-  w=text[m.start():m.start()+700];dm=DATE.search(w);tm=find_time(w)
+  w=text[m.start():m.start()+700];dm=next(date_matches(w),None);tm=find_time(w)
   if not dm or not tm:continue
-  d,mo,y=parsed(dm);dt=datetime(y,mo,d,*tm,tzinfo=TZ)
+  _,d,mo,y=dm;dt=datetime(y,mo,d,*tm,tzinfo=TZ)
   if dt>=now()-timedelta(days=1):out.append(make_event(club,'vvk',url,dt,w))
  return list({(e[0],e[2]):e for e in out}.values())
 def detect_real(club,url,html):
  text=clean(html);out=[];sale=re.compile(r'(?i)(tickets?\s+(?:are\s+)?on\s+sale|general\s+public|available\s+soon|tickets?\s+available)')
  for m in sale.finditer(text):
-  w=text[m.start():m.start()+900];dm=DATE.search(w);tm=find_time(w)
+  w=text[m.start():m.start()+900];dm=next(date_matches(w),None);tm=find_time(w)
   if not dm or not tm:continue
-  d,mo,y=parsed(dm)
+  _,d,mo,y=dm
   try:dt=datetime(y,mo,d,*tm,tzinfo=TZ)
   except ValueError:continue
   out.append(make_event(club,'vvk',url,dt,w))
@@ -126,7 +134,7 @@ def main():
  for s in json.loads(DATA.read_text(encoding='utf-8'))['sources']:
   try:found+=detect(s['club'],s['type'],s['url'],fetch(s['url']))
   except Exception as ex:print(f'source failed {s["club"]}: {ex}')
- n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V11.1//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
+ n=now();unique={e[0]:e for e in found if e[2]>=n};cal=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VVK Radar V11.3//DE','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:⚽ VVK Radar','X-WR-TIMEZONE:Europe/Berlin']
  for e in sorted(unique.values(),key=lambda x:x[2]):cal+=event_lines(e)
  OUT.parent.mkdir(exist_ok=True);OUT.write_text('\r\n'.join(cal+['END:VCALENDAR'])+'\r\n',encoding='utf-8');print(f'Wrote {len(unique)} events')
 if __name__=='__main__':main()
