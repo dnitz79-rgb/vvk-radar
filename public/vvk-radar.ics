@@ -5,4 +5,283 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VEVENT
+UID:43dfb75e34a7a2f7503f816ffbb4b197c5d8e89d@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260829T210000
+DTEND;TZID=Europe/Berlin:20260829T213000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – sp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>08.09.26&lt\;/td>\\r\\n&lt\;td>21:00 Uhr&lt\;/td>\\r\\n&lt\;td>Villarreal CF (H)&lt\;/td>\\r\\n&lt\;td>Champions League&lt\;/td>\\r\\n&lt\;td>01.09.26\, 12 Uhr (10 Tickets pro Mitglied)&lt\;/td>\\r\\n&
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:7dd0545f9edf4bc0711f6930b5d84baafe49d57c@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260901T120000
+DTEND;TZID=Europe/Berlin:20260901T123000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – td>Villarreal CF (H)&lt\;/td>\\r\\n&lt\;td>Champions League&lt\;/td>\\r\\n&lt\;td>01.09.26\, 12 Uhr (10 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>01.09.26\, 14 Uhr (10 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:1f83b307273c6fca8dd9b91b82a777334d811bc2@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260901T120000
+DTEND;TZID=Europe/Berlin:20260901T123000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – lied) 20.07.26\, 12 Uhr (6 Tickets pro BVB-Fan) 05.09.26 15:30 Uhr TSG Hoffenheim (A) Bundesliga 06.08.26\, 12 Uhr (2 Tickets pro Mitglied) – 12.09.26 15:30 Uhr SC Paderborn 07 (H) Bundesliga 13.08.26\, 12 Uhr (6 Tickets pr
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:2e63b1991669310bba09651ebcdd6552bf3e9044@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260901T153000
+DTEND;TZID=Europe/Berlin:20260901T160000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – an) 05.09.26 15:30 Uhr TSG Hoffenheim (A) Bundesliga 06.08.26\, 12 Uhr (2 Tickets pro Mitglied) – 12.09.26 15:30 Uhr SC Paderborn 07 (H) Bundesliga 13.08.26\, 12 Uhr (6 Tickets pro Mitglied) 17.08.26\, 12 Uhr (6 Tickets pro
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:cb329df7d133021d3ff7b7140f4a9dde2bd4eb89@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260901T183000
+DTEND;TZID=Europe/Berlin:20260901T190000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – h Tickets verfügbar)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>19.09.26&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;/td>\\r\\n&lt\;td>VfB Stuttgart (A)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>20.08.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:f36fd7c11c6a21b55d946f78dbeb5dfd22c97393@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260901T183000
+DTEND;TZID=Europe/Berlin:20260901T190000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – 6&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;/td>\\r\\n&lt\;td>VfB Stuttgart (A)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>20.08.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &am
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:c9906cb496a1d0b723369a70b745572a561f8d04@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260905T140000
+DTEND;TZID=Europe/Berlin:20260905T143000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – td>\\r\\n&lt\;td>01.09.26\, 14 Uhr (10 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf 
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:70db8fe75bf42e742a9aeb3ec3e4b55c1a13c131@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260908T120000
+DTEND;TZID=Europe/Berlin:20260908T123000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – /td>\\r\\n&lt\;td>13.08.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>17.08.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>19.09.26&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:3eb462bc11f0ff573e03e7f46ab0b55705ee708c@vvk-radar
+DTSTAMP:20260829T182013Z
+DTSTART;TZID=Europe/Berlin:20260912T183000
+DTEND;TZID=Europe/Berlin:20260912T190000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – ble>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 29.08.26 18:30 Uhr Hamburger SV (H) Bundesliga 30.07.26\, 12 Uhr (4 Tickets 
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
 END:VCALENDAR
