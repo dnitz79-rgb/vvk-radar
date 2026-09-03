@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:89dd8bb02637a260e63b748ce44ea1e91373cab1@vvk-radar
-DTSTAMP:20260903T003651Z
+DTSTAMP:20260903T063256Z
 DTSTART;TZID=Europe/Berlin:20260905T140000
 DTEND;TZID=Europe/Berlin:20260905T143000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – td>\\r\\n&lt\;td>01.09.26\, 14 Uhr (10 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf 
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:3ef87693196604a90679a8c5d644bbae4fdd4895@vvk-radar
-DTSTAMP:20260903T003651Z
+DTSTAMP:20260903T063256Z
 DTSTART;TZID=Europe/Berlin:20260908T120000
 DTEND;TZID=Europe/Berlin:20260908T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – /td>\\r\\n&lt\;td>13.08.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>17.08.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>19.09.26&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:6f8908b4ae06e8d9c58a8129ebad211f7294de0d@vvk-radar
-DTSTAMP:20260903T003651Z
+DTSTAMP:20260903T063256Z
 DTSTART;TZID=Europe/Berlin:20260908T120000
 DTEND;TZID=Europe/Berlin:20260908T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – EBC (A) DFB-Pokal 17.07.26\, 12 Uhr (6 Tickets pro Mitglied) 20.07.26\, 12 Uhr (6 Tickets pro BVB-Fan) 05.09.26 15:30 Uhr TSG Hoffenheim (A) Bundesliga 06.08.26\, 12 Uhr (2 Tickets pro Mitglied) – 12.09.26 15:30 Uhr SC Pade
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:96aa7b96d6d61af95f4160794870babe1aaeee4a@vvk-radar
-DTSTAMP:20260903T003651Z
+DTSTAMP:20260903T063256Z
 DTSTART;TZID=Europe/Berlin:20260912T183000
 DTEND;TZID=Europe/Berlin:20260912T190000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ble>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 29.08.26 18:30 Uhr Hamburger SV (H) Bundesliga 30.07.26\, 12 Uhr (4 Tickets 
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:7cddb83132c7866083c501d7a24c988f6c1ed5bf@vvk-radar
-DTSTAMP:20260903T003651Z
+DTSTAMP:20260903T063256Z
 DTSTART;TZID=Europe/Berlin:20260919T120000
 DTEND;TZID=Europe/Berlin:20260919T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – Hamburger SV (H) Bundesliga 30.07.26\, 12 Uhr (4 Tickets pro Mitglied) – 01.09.26 20:45 Uhr HEBC (A) DFB-Pokal 17.07.26\, 12 Uhr (6 Tickets pro Mitglied) 20.07.26\, 12 Uhr (6 Tickets pro BVB-Fan) 05.09.26 15:30 Uhr TSG Hoff
