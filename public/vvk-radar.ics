@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:6bb3f7a2dc7ae600af5ff62dab79bab7b069f047@vvk-radar
-DTSTAMP:20260907T003801Z
+DTSTAMP:20260907T063500Z
 DTSTART;TZID=Europe/Berlin:20260908T120000
 DTEND;TZID=Europe/Berlin:20260908T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – /td>\\r\\n&lt\;td>13.08.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>17.08.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>19.09.26&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:de5831cfc45cca3040eeaa5ab2417472254b44d8@vvk-radar
-DTSTAMP:20260907T003801Z
+DTSTAMP:20260907T063500Z
 DTSTART;TZID=Europe/Berlin:20260908T153000
 DTEND;TZID=Europe/Berlin:20260908T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 05.09.26 15:30 Uhr TSG Hoffenheim (A) Bundesliga 06.08.26\, 12 Uhr (2 Tickets pro Mitglied) – 12.09.26 15:30 Uhr SC Pade
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:c54b166cad22d7a1f4f92e07ca4c529ecf55af0c@vvk-radar
-DTSTAMP:20260907T003801Z
+DTSTAMP:20260907T063500Z
 DTSTART;TZID=Europe/Berlin:20260912T120000
 DTEND;TZID=Europe/Berlin:20260912T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – >FC Villarreal (H)&lt\;/td>\\r\\n&lt\;td>Champions League&lt\;/td>\\r\\n&lt\;td>01.09.26\, 12 Uhr (10 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>01.09.26\, 14 Uhr (10 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:a77c48c148cadfaded02a8b30fc82851112f730a@vvk-radar
-DTSTAMP:20260907T003801Z
+DTSTAMP:20260907T063500Z
 DTSTART;TZID=Europe/Berlin:20260919T153000
 DTEND;TZID=Europe/Berlin:20260919T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – o BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 05.09.26 15:30 Uhr TSG Hoff
