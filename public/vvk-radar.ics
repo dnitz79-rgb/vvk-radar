@@ -6,8 +6,8 @@ METHOD:PUBLISH
 X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
-UID:c54b166cad22d7a1f4f92e07ca4c529ecf55af0c@vvk-radar
-DTSTAMP:20260911T043751Z
+UID:79dba2fc758bfcddcc3f263e7d0434987c8d09ab@vvk-radar
+DTSTAMP:20260911T111857Z
 DTSTART;TZID=Europe/Berlin:20260912T120000
 DTEND;TZID=Europe/Berlin:20260912T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – >FC Villarreal (H)&lt\;/td>\\r\\n&lt\;td>Champions League&lt\;/td>\\r\\n&lt\;td>01.09.26\, 12 Uhr (10 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>01.09.26\, 14 Uhr (10 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n
@@ -37,11 +37,73 @@ DESCRIPTION:🚨 VVK startet in 30 Minuten
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:a77c48c148cadfaded02a8b30fc82851112f730a@vvk-radar
-DTSTAMP:20260911T043751Z
+UID:458b0654499bf7423ff0aa9ef4c48e536e5593c0@vvk-radar
+DTSTAMP:20260911T111857Z
 DTSTART;TZID=Europe/Berlin:20260919T153000
 DTEND;TZID=Europe/Berlin:20260919T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – o BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 05.09.26 15:30 Uhr TSG Hoff
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:20c7ff84e92243a5990b367bf5847a048114ea68@vvk-radar
+DTSTAMP:20260911T111857Z
+DTSTART;TZID=Europe/Berlin:20260926T120000
+DTEND;TZID=Europe/Berlin:20260926T123000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – C Paderborn 07 (H) Bundesliga 13.08.26\, 12 Uhr (6 Tickets pro Mitglied) 17.08.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar) 19.09.26 18:30 Uhr VfB Stuttgart (A) Bundesliga 20.08.26\, 12 Uhr (2 Tickets 
+DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+TRIGGER:-P5D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 5 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK in 3 Tagen
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:🔔 VVK MORGEN
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:🚨 VVK startet in 30 Minuten
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:9c822f1db7b79c260f1b20d8ffa971c12284aeaa@vvk-radar
+DTSTAMP:20260911T111857Z
+DTSTART;TZID=Europe/Berlin:20261109T120000
+DTEND;TZID=Europe/Berlin:20261109T123000
+SUMMARY:🔥 UEFA Champions League – BVB | VVK – art (A) Bundesliga 20.08.26\, 12 Uhr (2 Tickets pro Mitglied) – 08.09.26 21:00 Uhr FC Villarreal (H) Champions League 01.09.26\, 12 Uhr (10 Tickets pro Mitglied) 01.09.26\, 14 Uhr (10 Tickets pro BVB-Fan) Zum Ticketshop Tic
 DESCRIPTION:Art: vvk\\nQuelle: https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
 URL:https://www.bvb.de/de/de/tickets/ticket-informationen/vorverkaufstermine.html
 STATUS:CONFIRMED
