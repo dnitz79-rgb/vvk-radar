@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:f4935e4217e16a12548921c66c1cff6b84b46a4a@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20260924T140000
 DTEND;TZID=Europe/Berlin:20260924T143000
 SUMMARY:🔥 Schalke 04 | VVK – h. Informationen zum Verkaufsstart der Tickets für einzelne Begegnungen oder Events in der VELTINS-Arena werden jeweils rechtzeitig vorab auf schalke04.de veröffentlicht. Ticket-News Mehr News Letzte Chance auf Online-Ti
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:0979e9523159e94f674f45260754424d9add6d8d@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261002T183000
 DTEND;TZID=Europe/Berlin:20261002T190000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – Tickets verfügbar)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>24.10.26&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;/td>\\r\\n&lt\;td>Eintracht Frankfurt (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>29.09.26\, 12 Uhr (4 Tickets pro Mitglied)&
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:0dd138b659e4ae8c418bef2819e7ad791ea316d9@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261006T184500
 DTEND;TZID=Europe/Berlin:20261006T191500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – mp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>20.10.26&lt\;/td>\\r\\n&lt\;td>18:45 Uhr&lt\;/td>\\r\\n&lt\;td>Sabah FK (A)&lt\;/td>\\r\\n&lt\;td>Champions League&lt\;/td>\\r\\n&lt\;td>02.10.26\, 12 Uhr (2 Tickets pro Mitglied)&lt
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:04e52c3409d3c328d766e54b410423644d24ab5b@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261009T120000
 DTEND;TZID=Europe/Berlin:20261009T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – München (A)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>06.10.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:d8467824c763d2268399069b929061b3646c83b3@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261009T183000
 DTEND;TZID=Europe/Berlin:20261009T190000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – r\\n&lt\;td>Anstoß&lt\;/td>\\r\\n&lt\;td>Gegner&lt\;/td>\\r\\n&lt\;td>Wettbewerb&lt\;/td>\\r\\n&lt\;td>Mitglieder-Vorverkauf&lt\;/td>\\r\\n&lt\;td>Freier Vorverkauf&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>19.09.26&lt\;/td>\\r\\n&lt\;td>18:30 Uhr&lt\;
@@ -162,7 +162,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:f56347ea44c3eb3604d8ecf900813af16932ef29@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261017T140000
 DTEND;TZID=Europe/Berlin:20261017T143000
 SUMMARY:🔥 Schalke 04 | VVK – online noch bis Dienstag (22.9.) um 14 Uhr erhältlich. Für Kurzentschlossene öffnet vor Ort in Oberhausen ab 17.30 Uhr eine Tageskasse. Tickets Heimspiele gegen Mainz\, Leipzig und Stuttgart: Ticketbörse geöffnet Für die 
@@ -192,8 +192,8 @@ DESCRIPTION:🚨 VVK startet in 30 Minuten
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:3fe0bab2e730e134ddf497498991bb0623f167b0@vvk-radar
-DTSTAMP:20260923T044340Z
+UID:898b29b8de3d702606ac92325a5f7632f2496785@vvk-radar
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261017T183000
 DTEND;TZID=Europe/Berlin:20261017T190000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – " hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 19.09.26 18:30 Uhr VfB Stuttgart (A) Bundesliga 20.08.26\, 12 Uhr (2 Tickets pro Mitglied) – 09.10.26 20:30 Uhr SV Werder Bremen (
@@ -224,7 +224,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9c0bcd43edb1c4a40ba6905e2b65062b049ed370@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261031T120000
 DTEND;TZID=Europe/Berlin:20261031T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – Bundesliga&lt\;/td>\\r\\n&lt\;td>29.09.26\, 12 Uhr (4 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>20.10.26&lt\;/td>\\r\\n&lt\;td>18:45 Uhr&lt\;/
@@ -255,7 +255,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:df4316d2d3abb6e2fc3ac59f0c7de6d012426fd8@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261031T140000
 DTEND;TZID=Europe/Berlin:20261031T143000
 SUMMARY:🔥 Schalke 04 | VVK – ) um 14 Uhr erhältlich. Für Kurzentschlossene öffnet vor Ort in Oberhausen ab 17.30 Uhr eine Tageskasse. Tickets Heimspiele gegen Mainz\, Leipzig und Stuttgart: Ticketbörse geöffnet Für die kommenden drei Heimspiele in de
@@ -286,7 +286,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:e53c5fc2844bea6530ed6d1a6d95fdf0e0df33ee@vvk-radar
-DTSTAMP:20260923T044340Z
+DTSTAMP:20260923T113305Z
 DTSTART;TZID=Europe/Berlin:20261104T183000
 DTEND;TZID=Europe/Berlin:20261104T190000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – lied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mit
