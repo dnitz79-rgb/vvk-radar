@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:e12e68170d2936ca20db3f4af01b97987ed788ec@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261012T153000
 DTEND;TZID=Europe/Berlin:20261012T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – p\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>07.11.26&lt\;/td>\\r\\n&lt\;td>15:30 Uhr&lt\;/td>\\r\\n&lt\;td>SV Elversberg (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>08.10.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:15d2bda707af79b77f58e95c329543e53bc7ad8f@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261012T183000
 DTEND;TZID=Europe/Berlin:20261012T190000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ckets verfügbar) 24.10.26 18:30 Uhr Eintracht Frankfurt (H) Bundesliga 29.09.26\, 12 Uhr (4 Tickets pro Mitglied) – 20.10.26 18:45 Uhr Sabah FK (A) Champions League 08.10.26\, 14 Uhr (2 Tickets pro Mitglied) – 31.10.26 18:
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:36aac221cb3301113989a255e8ad95d01df966cb@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261013T120000
 DTEND;TZID=Europe/Berlin:20261013T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – cht Frankfurt (H) Bundesliga 29.09.26\, 12 Uhr (4 Tickets pro Mitglied) – 20.10.26 18:45 Uhr Sabah FK (A) Champions League 08.10.26\, 14 Uhr (2 Tickets pro Mitglied) – 31.10.26 18:30 Uhr FC Bayern München (A) Bundesliga 06
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:b360896b9d99a29abee2c176e1f1f0750688ccad@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261013T153000
 DTEND;TZID=Europe/Berlin:20261013T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – 26&lt\;/td>\\r\\n&lt\;td>15:30 Uhr&lt\;/td>\\r\\n&lt\;td>SV Elversberg (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>08.10.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &a
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:02be08fa256bc3ef73dbd843ad1555d05f527be5@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261017T140000
 DTEND;TZID=Europe/Berlin:20261017T143000
 SUMMARY:🔥 Schalke 04 | VVK – online noch bis Dienstag (22.9.) um 14 Uhr erhältlich. Für Kurzentschlossene öffnet vor Ort in Oberhausen ab 17.30 Uhr eine Tageskasse. Tickets Heimspiele gegen Mainz\, Leipzig und Stuttgart: Ticketbörse geöffnet Für die 
@@ -162,7 +162,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:23346d39c1a488604ea7f0a12d96239a90f99481@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261017T203000
 DTEND;TZID=Europe/Berlin:20261017T210000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – &lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 09.10.26 20:30 Uhr SV Werder Bremen (
@@ -193,7 +193,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2ed123558d4ea5c6102a624ab0976e6a62ebd622@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T120000
 DTEND;TZID=Europe/Berlin:20261020T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ro Mitglied) 21.09.26\, 12 Uhr (10 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar sind) 17.10.26 15:30 Uhr 1. FC Union Berlin (A) Bundesliga 22.09.26\, 12 Uhr (2 Tickets pro Mitglied) – 27.10.26 20:45 Uhr SV Werder Bre
@@ -224,7 +224,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:e10ebf9972f8cd5417dd6c6e8f436b6e3cc8c2d5@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T120000
 DTEND;TZID=Europe/Berlin:20261020T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – \;showDate&#34\;\,&#34\;title&#34\;:&#34\;Show Date and Time (CET)&#34\;\,&#34\;multiValue&#34\;:false\,&#34\;value&#34\;:&#34\;06.10.26 12:00 Z&#34\;\,&#34\;exportedType&#34\;:&#34\;calendar&#34\;}\,&#34\;teaserText&#34\;:{&#34\;multiLine&#34\;
@@ -255,7 +255,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:45b168e12b959fbdc6f72f66d4293e18f33af962@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T120000
 DTEND;TZID=Europe/Berlin:20261020T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – owDate&#34\;\,&#34\;title&#34\;:&#34\;Show Date and Time (CET)&#34\;\,&#34\;multiValue&#34\;:false\,&#34\;value&#34\;:&#34\;06.10.26 12:00 Z&#34\;\,&#34\;exportedType&#34\;:&#34\;calendar&#34\;}\,&#34\;teaserText&#34\;:{&#34\;multiLine&#34\;:tr
@@ -286,7 +286,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:0aa0e6cb08b71f8019cf6f8c89e6703f5128d883@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T184500
 DTEND;TZID=Europe/Berlin:20261020T191500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – true\,&#34\;exportedType&#34\;:&#34\;text/plain&#34\;}\,&#34\;isClubMemberNews&#34\;:{&#34\;multiLine&#34\;:false\,&#34\;dataType&#34\;:&#34\;boolean&#34\;\,&#34\;name&#34\;:&#34\;isClubMemberNews&#34\;\,&#34\;title&#34\;:&#34\;Club-member only
@@ -317,7 +317,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:70816d910824576c10027100c0e9a1535507c2f6@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T184500
 DTEND;TZID=Europe/Berlin:20261020T191500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – >Borussia Dortmund trifft in der Ligaphase der UEFA Champions League auf Sabah FK. Für das Spiel im Baku Olympic Stadium (Di.\, 20.10.\, 18:45 Uhr) startet der Ticketvorverkauf am Donnerstag\, 8. Oktober\, um 14 Uhr.&amp\;nbs
@@ -348,7 +348,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9b9402595cf541e5d0ce481a211837f683778c00@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T184500
 DTEND;TZID=Europe/Berlin:20261020T191500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – iLine&#34\;:false\,&#34\;dataType&#34\;:&#34\;string&#34\;\,&#34\;name&#34\;:&#34\;subCategory&#34\;\,&#34\;title&#34\;:&#34\;Departments&#34\;\,&#34\;multiValue&#34\;:true\,&#34\;value&#34\;:&#34\;Tickets&#34\;\,&#34\;exportedType&#34\;:&#34\;text
@@ -379,7 +379,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:faf2239351ac778e425ae6460662af63fc3f9599@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261020T184500
 DTEND;TZID=Europe/Berlin:20261020T191500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – russia Dortmund trifft in der Ligaphase der UEFA Champions League auf Sabah FK. Für das Spiel im Baku Olympic Stadium (Di.\, 20.10.\, 18:45 Uhr) startet der Ticketvorverkauf am Donnerstag\, 8. Oktober\, um 14 Uhr.&amp\;nbsp\;&
@@ -410,7 +410,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:718d3f47b7946d873cabfccd845fc75337d009c5@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261024T210000
 DTEND;TZID=Europe/Berlin:20261024T213000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – pro Mitglied) – 04.11.26 21:00 Uhr Real Betis (H) Champions League 18.09.26\, 12 Uhr (10 Tickets pro Mitglied) 21.09.26\, 12 Uhr (10 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar sind) 17.10.26 15:30 Uhr 1. FC Union B
@@ -441,7 +441,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:611c834caf8888b886aa47ff98f3d3fbd7443ddc@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261027T203000
 DTEND;TZID=Europe/Berlin:20261027T210000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – den> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 09.10.26 20:30 Uhr SV Werder Bremen (H) Bundesliga 15.09.26\, 12 Uhr (4 Tickets pro Mitglied) – 04.11.26 21:00 Uhr Real Betis (H) Champ
@@ -472,7 +472,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:6cecb90516ae8f2f86cd8059b5fc2c7e31c1c8f3@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261031T140000
 DTEND;TZID=Europe/Berlin:20261031T143000
 SUMMARY:🔥 Schalke 04 | VVK – ) um 14 Uhr erhältlich. Für Kurzentschlossene öffnet vor Ort in Oberhausen ab 17.30 Uhr eine Tageskasse. Tickets Heimspiele gegen Mainz\, Leipzig und Stuttgart: Ticketbörse geöffnet Für die kommenden drei Heimspiele in de
@@ -503,7 +503,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:5b0d50e2cb2822cefb641b32c3cf18d992eba4d8@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261031T153000
 DTEND;TZID=Europe/Berlin:20261031T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – .10.26 15:30 Uhr 1. FC Union Berlin (A) Bundesliga 22.09.26\, 12 Uhr (2 Tickets pro Mitglied) – 27.10.26 20:45 Uhr SV Werder Bremen (H) DFB-Pokal 25.09.26\, 12 Uhr (6 Tickets pro Mitglied) 28.09.26\, 12 Uhr (6 Tickets pro B
@@ -534,7 +534,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:4fbba1b0e6adf559f804584de7b8b6a25791a637@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261104T120000
 DTEND;TZID=Europe/Berlin:20261104T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – )&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>12.10.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>13.10.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch verfügbar)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#
@@ -565,7 +565,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:65cdeae08b51079f2822e58f24b8ea8c0d726d8a@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261104T203000
 DTEND;TZID=Europe/Berlin:20261104T210000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – &lt\;td>Anstoß&lt\;/td>\\r\\n&lt\;td>Gegner&lt\;/td>\\r\\n&lt\;td>Wettbewerb&lt\;/td>\\r\\n&lt\;td>Mitglieder-Vorverkauf&lt\;/td>\\r\\n&lt\;td>Freier Vorverkauf&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>09.10.26&lt\;/td>\\r\\n&lt\;td>20:30 Uhr&lt\;/td
@@ -596,7 +596,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cdebc62fee02bd49abd7b52615918eed82a5285d@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261107T204500
 DTEND;TZID=Europe/Berlin:20261107T211500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – 7.10.26 20:45 Uhr SV Werder Bremen (H) DFB-Pokal 25.09.26\, 12 Uhr (6 Tickets pro Mitglied) 28.09.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar) 24.10.26 18:30 Uhr Eintracht Frankfurt (H) Bundesliga 29.
@@ -627,7 +627,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:fba0b536432b51730c747be9315ec5db622eec17@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261129T120000
 DTEND;TZID=Europe/Berlin:20261129T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – >Bundesliga&lt\;/td>\\r\\n&lt\;td>06.10.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>07.11.26&lt\;/td>\\r\\n&lt\;td>15:30 Uhr&lt\;
@@ -658,7 +658,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:fa7b32359a477c82b3129289bf8fc82737d85408@vvk-radar
-DTSTAMP:20261009T223750Z
+DTSTAMP:20261010T054940Z
 DTSTART;TZID=Europe/Berlin:20261129T120000
 DTEND;TZID=Europe/Berlin:20261129T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – 8.09.26\, 12 Uhr (6 Tickets pro BVB-Fan\, sofern noch Tickets verfügbar) 24.10.26 18:30 Uhr Eintracht Frankfurt (H) Bundesliga 29.09.26\, 12 Uhr (4 Tickets pro Mitglied) – 20.10.26 18:45 Uhr Sabah FK (A) Champions League 08
