@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:e017715c255589ff886eb531e2ef79c68f221da2@vvk-radar
-DTSTAMP:20261021T171024Z
+DTSTAMP:20261021T214107Z
 DTSTART;TZID=Europe/Berlin:20261024T153000
 DTEND;TZID=Europe/Berlin:20261024T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – bsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 17.10.26 15:30 Uhr 1. FC Union 
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cd0f0053238fecd3d7486b86e30b4d41c3e2cc23@vvk-radar
-DTSTAMP:20261021T171024Z
+DTSTAMP:20261021T214107Z
 DTSTART;TZID=Europe/Berlin:20261027T120000
 DTEND;TZID=Europe/Berlin:20261027T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – en (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>12.10.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:b48a2a6d510300f11935b98d31b6c7bfc8a656a4@vvk-radar
-DTSTAMP:20261021T171024Z
+DTSTAMP:20261021T214107Z
 DTSTART;TZID=Europe/Berlin:20261028T180000
 DTEND;TZID=Europe/Berlin:20261028T183000
 SUMMARY:🔥 Schalke 04 | VVK – INS-Arena Tickets Ticket-News Ticket-News Eintrittskarten für Spiele des FC Schalke 04 sind im Ticketshop der Königsblauen erhältlich. Informationen zum Verkaufsstart der Tickets für einzelne Begegnungen oder Events in d
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:393dadbd7b791639d9e6dd0647864a25204c7b8a@vvk-radar
-DTSTAMP:20261021T171024Z
+DTSTAMP:20261021T214107Z
 DTSTART;TZID=Europe/Berlin:20261029T153000
 DTEND;TZID=Europe/Berlin:20261029T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>21.11.26&lt\;/td>\\r\\n&lt\;td>15:30 Uhr&lt\;/td>\\r\\n&lt\;td>Borussia Mönchengladbach (A)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>23.10.26\, 12 Uhr (2 Tickets pro Mitglied)&l
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:cae0c7e4b68f22394d218cb81e367e6e1e281675@vvk-radar
-DTSTAMP:20261021T171024Z
+DTSTAMP:20261021T214107Z
 DTSTART;TZID=Europe/Berlin:20261129T120000
 DTEND;TZID=Europe/Berlin:20261129T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ndesliga&lt\;/td>\\r\\n&lt\;td>23.10.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>24.11.26&lt\;/td>\\r\\n&lt\;td>21:00 Uhr&lt\;/td
