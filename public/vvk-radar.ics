@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:72644d75baa0a80be8f21ad039afa86fabeb6647@vvk-radar
-DTSTAMP:20261025T161414Z
+DTSTAMP:20261025T204932Z
 DTSTART;TZID=Europe/Berlin:20261027T210000
 DTEND;TZID=Europe/Berlin:20261027T213000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – r\\n&lt\;/tr>&lt\;tr>&lt\;td>09.12.26&lt\;/td>\\r\\n&lt\;td>21:00 Uhr&lt\;/td>\\r\\n&lt\;td>Inter Mailand (H)&lt\;/td>\\r\\n&lt\;td>Champions League&lt\;/td>\\r\\n&lt\;td>30.10.26\, 12 Uhr (4 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:b48a2a6d510300f11935b98d31b6c7bfc8a656a4@vvk-radar
-DTSTAMP:20261025T161414Z
+DTSTAMP:20261025T204932Z
 DTSTART;TZID=Europe/Berlin:20261028T180000
 DTEND;TZID=Europe/Berlin:20261028T183000
 SUMMARY:🔥 Schalke 04 | VVK – INS-Arena Tickets Ticket-News Ticket-News Eintrittskarten für Spiele des FC Schalke 04 sind im Ticketshop der Königsblauen erhältlich. Informationen zum Verkaufsstart der Tickets für einzelne Begegnungen oder Events in d
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:eb662218cbd6fde860ce70b78b0fb64d6a68c881@vvk-radar
-DTSTAMP:20261025T161414Z
+DTSTAMP:20261025T204932Z
 DTSTART;TZID=Europe/Berlin:20261030T193000
 DTEND;TZID=Europe/Berlin:20261030T200000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – \; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>29.11.26&lt\;/td>\\r\\n&lt\;td>19:30 Uhr&lt\;/td>\\r\\n&lt\;td>Bayer 04 Leverkusen (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>12.10.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:c81a4cc6e33ecbccc94677561471899654d08a6b@vvk-radar
-DTSTAMP:20261025T161414Z
+DTSTAMP:20261025T204932Z
 DTSTART;TZID=Europe/Berlin:20261031T204500
 DTEND;TZID=Europe/Berlin:20261031T211500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – sp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 27.10.26 20:45 Uhr SV Werder Bre
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:2128b82a3bca0e07c291cd45d8a74ebef04a6487@vvk-radar
-DTSTAMP:20261025T161414Z
+DTSTAMP:20261025T204932Z
 DTSTART;TZID=Europe/Berlin:20261104T204500
 DTEND;TZID=Europe/Berlin:20261104T211500
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – t" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 27.10.26 20:45 Uhr SV Werder Bremen (H) DFB-Pokal 25.09.26\, 12 Uhr (6 Tickets pro Mitglied) 28.09.26\, 12 Uhr (6 Tickets pro BVB-
@@ -162,7 +162,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:0de47b06a8f9ae0294b4f529f903ae0552e3fa4b@vvk-radar
-DTSTAMP:20261025T161414Z
+DTSTAMP:20261025T204932Z
 DTSTART;TZID=Europe/Berlin:20261209T120000
 DTEND;TZID=Europe/Berlin:20261209T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – eague&lt\;/td>\\r\\n&lt\;td>29.10.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>29.11.26&lt\;/td>\\r\\n&lt\;td>19:30 Uhr&lt\;/td>\\r
