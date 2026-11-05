@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:10be1d9bf5b838ed8a70cc2639e635d77946ca6c@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261124T130000
 DTEND;TZID=Europe/Berlin:20261124T133000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – howDate&#34\;\,&#34\;title&#34\;:&#34\;Show Date and Time (CET)&#34\;\,&#34\;multiValue&#34\;:false\,&#34\;value&#34\;:&#34\;28.10.26 13:00 Z&#34\;\,&#34\;exportedType&#34\;:&#34\;calendar&#34\;}\,&#34\;teaserText&#34\;:{&#34\;multiLine&#34\;:t
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:98378951163ee17d6c658535d46eea9fe40bbb1f@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261124T130000
 DTEND;TZID=Europe/Berlin:20261124T133000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – Date&#34\;\,&#34\;title&#34\;:&#34\;Show Date and Time (CET)&#34\;\,&#34\;multiValue&#34\;:false\,&#34\;value&#34\;:&#34\;28.10.26 13:00 Z&#34\;\,&#34\;exportedType&#34\;:&#34\;calendar&#34\;}\,&#34\;teaserText&#34\;:{&#34\;multiLine&#34\;:true
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:0e8793a1c59130642ce282feaa20da09ed1268b2@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261124T210000
 DTEND;TZID=Europe/Berlin:20261124T213000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – \;]\,&#34\;exportedType&#34\;:&#34\;text/plain&#34\;}\,&#34\;isClubMemberNews&#34\;:{&#34\;multiLine&#34\;:false\,&#34\;dataType&#34\;:&#34\;boolean&#34\;\,&#34\;name&#34\;:&#34\;isClubMemberNews&#34\;\,&#34\;title&#34\;:&#34\;Club-member only N
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:67818b83f98195cdc086528a8eb21b83347f40ed@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261124T210000
 DTEND;TZID=Europe/Berlin:20261124T213000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – 34\;&lt\;p>Borussia Dortmund trifft in der Ligaphase der UEFA Champions League auf den FC Arsenal. Für das Spiel im Emirates Stadium (Di.\, 24.11.\, 21 Uhr) startet der Ticketvorverkauf am Donnerstag\, 29. Oktober\, um 12 Uhr.
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:c7992cf1d0be8473edb45107b21c52aee747b7e6@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261124T210000
 DTEND;TZID=Europe/Berlin:20261124T213000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ine&#34\;:false\,&#34\;dataType&#34\;:&#34\;string&#34\;\,&#34\;name&#34\;:&#34\;subCategory&#34\;\,&#34\;title&#34\;:&#34\;Departments&#34\;\,&#34\;multiValue&#34\;:true\,&#34\;value&#34\;:&#34\;Tickets&#34\;\,&#34\;exportedType&#34\;:&#34\;text/p
@@ -162,7 +162,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:d21ff6253a3351d62963e663361bf3cdc80986ea@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261124T210000
 DTEND;TZID=Europe/Berlin:20261124T213000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – \;p&gt\;Borussia Dortmund trifft in der Ligaphase der UEFA Champions League auf den FC Arsenal. Für das Spiel im Emirates Stadium (Di.\, 24.11.\, 21 Uhr) startet der Ticketvorverkauf am Donnerstag\, 29. Oktober\, um 12 Uhr.&lt
@@ -193,7 +193,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:0de47b06a8f9ae0294b4f529f903ae0552e3fa4b@vvk-radar
-DTSTAMP:20261104T234024Z
+DTSTAMP:20261105T064159Z
 DTSTART;TZID=Europe/Berlin:20261209T120000
 DTEND;TZID=Europe/Berlin:20261209T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – eague&lt\;/td>\\r\\n&lt\;td>29.10.26\, 12 Uhr (2 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>&amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>29.11.26&lt\;/td>\\r\\n&lt\;td>19:30 Uhr&lt\;/td>\\r
