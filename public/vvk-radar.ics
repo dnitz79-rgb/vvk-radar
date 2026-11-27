@@ -7,7 +7,7 @@ X-WR-CALNAME:⚽ VVK Radar
 X-WR-TIMEZONE:Europe/Berlin
 BEGIN:VEVENT
 UID:fb47c0e1c588a4b630054bdc0de585e1f124485a@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261129T120000
 DTEND;TZID=Europe/Berlin:20261129T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – &amp\;nbsp\; &amp\;nbsp\; –&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>tba&lt\;/td>\\r\\n&lt\;td>tba&lt\;/td>\\r\\n&lt\;td>TSG Hoffenheim (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>13.11.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n
@@ -38,7 +38,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:f2e09a241b3e2eb716c2c75afc02469d83a6e086@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261130T153000
 DTEND;TZID=Europe/Berlin:20261130T160000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – hr (6 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>16.01.27&lt\;/td>\\r\\n&lt\;td>15:30 Uhr&lt\;/td>\\r\\n&lt\;td>SC Freiburg (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>12.11.26\, 12 Uhr (6 Tickets pro Mitglied)&
@@ -69,7 +69,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:bf92bec3636391a12228b01a33d9926fe7417734@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261202T120000
 DTEND;TZID=Europe/Berlin:20261202T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – td>TSG Hoffenheim (H)&lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>13.11.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>16.11.26\, 12 Uhr (6 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;
@@ -100,7 +100,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:e12d4f55236d451edbcaaa72175b207390cf1b97@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261202T193000
 DTEND;TZID=Europe/Berlin:20261202T200000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – \;td>Anstoß&lt\;/td>\\r\\n&lt\;td>Gegner&lt\;/td>\\r\\n&lt\;td>Wettbewerb&lt\;/td>\\r\\n&lt\;td>Mitglieder-Vorverkauf&lt\;/td>\\r\\n&lt\;td>Freier Vorverkauf&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>29.11.26&lt\;/td>\\r\\n&lt\;td>19:30 Uhr&lt\;/td>\\r
@@ -131,7 +131,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:53d61b5eca345cc330f97baf39861d6e5ea9689b@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261206T120000
 DTEND;TZID=Europe/Berlin:20261206T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – pro Mitglied)&lt\;/td>\\r\\n&lt\;td>16.11.26\, 12 Uhr (6 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder 
@@ -162,7 +162,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:69047fa080c381682d269b68dab407c23b500fef@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261209T193000
 DTEND;TZID=Europe/Berlin:20261209T200000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – &lt\;/tbody>&lt\;/table>\\r\\n&#34\;}}" id="table-af33720c80" class="cmp-text" hidden> Datum Anstoß Gegner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 29.11.26 19:30 Uhr Bayer 04 Leverkusen (H) Bundesliga 12.
@@ -193,7 +193,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:f72074abcdfe0a13dbd76141c46493e7e5e84299@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20261212T193000
 DTEND;TZID=Europe/Berlin:20261212T200000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – ner Wettbewerb %nb%Mitglieder %/nb%-Vorverkauf Freier Vorverkauf 29.11.26 19:30 Uhr Bayer 04 Leverkusen (H) Bundesliga 12.10.26\, 12 Uhr (6 Tickets pro Mitglied) – 02.12.26 20:45 Uhr Eintracht Frankfurt (A) DFB-Pokal 10.1
@@ -224,7 +224,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:027e1e8651dcc3bb46b099e636b12e7bcf2c4c59@vvk-radar
-DTSTAMP:20261126T212913Z
+DTSTAMP:20261127T082300Z
 DTSTART;TZID=Europe/Berlin:20270127T120000
 DTEND;TZID=Europe/Berlin:20270127T123000
 SUMMARY:🔥 UEFA Champions League – BVB | VVK – &lt\;/td>\\r\\n&lt\;td>Bundesliga&lt\;/td>\\r\\n&lt\;td>11.11.26\, 12 Uhr (6 Tickets pro Mitglied)&lt\;/td>\\r\\n&lt\;td>16.11.26\, 12 Uhr (6 Tickets pro BVB-Fan)&lt\;/td>\\r\\n&lt\;/tr>&lt\;tr>&lt\;td>16.01.27&lt\;/td>\\r\\n&lt\;td>15:30 Uhr&l
